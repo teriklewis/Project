@@ -11,60 +11,18 @@
     </head>
 
     <body>
-        <div class="top"> 
+        <div class="top" > 
+            <?php if ($level == 0): ?><li><a href="<?= site_url('LoginController') ?>">Login</a></li><?php endif; ?>
+            <?php if ($level > 0): ?><li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li><?php endif; ?>
             <h2>
-                penis
+                <?php if ($level > 0): ?><h1><?php echo "Welcome " . $id . "!"; ?></h1></br> 
+                <?php else: ?><h1><?php echo "Welcome Guest!"; ?></h1><br> <?php endif; ?>
             </h2>
         </div>
         <h1><marquee behavior="slide" direction="left">i like tits..........................................................but i like butts more</marquee></h1>
         <img src="<?php echo base_url(); ?>/theme/assets/753.png" width="300" height="300" alt="753">
         <div class="top"><h1>GO SUCK YO MOTHA</h1></div>
-        <style style="text/css">
-.example1 {
- height: 50px;	
- overflow: hidden;
- position: relative;
-}
-.example1 h3 {
- font-size: 3em;
- color: limegreen;
- position: absolute;
- width: 100%;
- height: 100%;
- margin: 0;
- line-height: 50px;
- text-align: center;
- /* Starting position */
- -moz-transform:translateX(100%);
- -webkit-transform:translateX(100%);	
- transform:translateX(100%);
- /* Apply animation to this element */	
- -moz-animation: example1 5s linear infinite;
- -webkit-animation: example1 5s linear infinite;
- animation: example1 5s linear infinite;
-}
-/* Move it (define the animation) */
-@-moz-keyframes example1 {
- 0%   { -moz-transform: translateX(100%); }
- 100% { -moz-transform: translateX(-100%); }
-}
-@-webkit-keyframes example1 {
- 0%   { -webkit-transform: translateX(100%); }
- 100% { -webkit-transform: translateX(-100%); }
-}
-@keyframes example1 {
- 0%   { 
- -moz-transform: translateX(100%); /* Firefox bug fix */
- -webkit-transform: translateX(100%); /* Firefox bug fix */
- transform: translateX(100%); 		
- }
- 100% { 
- -moz-transform: translateX(-100%); /* Firefox bug fix */
- -webkit-transform: translateX(-100%); /* Firefox bug fix */
- transform: translateX(-100%); 
- }
-}
-</style>
+
 <div class="example1">
 <h3>PEARS!!!</h3>
 </div>
