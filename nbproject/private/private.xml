@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/SoftwareProject/theme/css/styles.css</file>
-            <file>file:/C:/xampp/htdocs/SoftwareProject/theme/css/normalize.css</file>
-            <file>file:/C:/xampp/htdocs/SoftwareProject/theme/css/assets.css</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/controllers/RequestCourseController.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/EditProfileView.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/StateAvailabilityView.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/controllers/StateAvailabilityController.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/RequestCourseView.php</file>
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/HomeView.php</file>
-            <file>file:/C:/xampp/htdocs/SoftwareProject/application/models/LoginModel.php</file>
-            <file>file:/C:/xampp/htdocs/SoftwareProject/application/controllers/LoginController.php</file>
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/controllers/HomeController.php</file>
         </group>
     </open-files>

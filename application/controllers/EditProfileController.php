@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends CI_Controller {
+class EditProfileController extends CI_Controller {
 
     public function index() {
         if ($this->session->userdata('logged_in')) {
@@ -12,11 +12,12 @@ class HomeController extends CI_Controller {
 
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
             
-            //sending $data to the HomeView and displaying the view
-            $this->load->view('HomeView', $data);
+            //sending $data to the EditProfileView and displaying the view
+            $this->load->view('EditProfileView', $data);
         } else {
             redirect('LoginController');
         }
+        
     }
 
 }
