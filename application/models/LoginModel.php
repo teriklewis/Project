@@ -1,13 +1,12 @@
 <?php
 
-class LoginModel extends CI_Model {
+class LoginModel extends CI_Model { 
 
     public function login($id, $pass) {
         $this->db->select('id', 'password'); //reading from the columns "username" and "password"
         $this->db->from('logininfo'); //reading from the login table
         $this->db->where('id', $id); //check if username in the database matches the username provided
-        $this->db->where('password', $pass);
-        //$this->db->where('password', sha1($pass)); //check if password matches
+        $this->db->where('password', sha1($pass)); //check if password matches
 
         $query = $this->db->get(); //get all the results from the database given the conditions
 
@@ -33,6 +32,14 @@ class LoginModel extends CI_Model {
                 return $level;
             }
         }
+    }
+    
+    public function changePassword($id, $newPass) {
+        $this->db->where('id', $id);
+        $this->db->set('password', sha1($newPass));
+        $this->db->update('logininfo');
+        echo '<script>alert("Password Successfully Changed!");</script>';
+        redirect(site_url('EditProfileController'), 'refresh');
     }
 
 }

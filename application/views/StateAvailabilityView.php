@@ -29,8 +29,7 @@
         
         <div class="cd-panel from-right">
                 <header class="cd-panel-header">
-                    <?php if ($level == 0): ?><h6>LOGIN</h6>
-                    <?php else: ?><h6>MENU</h6><?php endif; ?>
+                    <h6>MENU</h6>
                     <a href="#0" class="cd-panel-close">Close</a>
                 </header>
                 <div class="cd-panel-container">

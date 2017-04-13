@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-
         <title>Class Scheduler</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,10 +9,10 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>/theme/css/styles.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>/theme/css/assets.css" />
     </head>
-    
+
     <body>
         
-         <main class="cd-main-content">
+        <main class="cd-main-content">
                 <header id="aminbar_header" class="aminbar_header fixed bar_top bx_dkgreen cd-header">
                     <div class="row fullrow">
                         <div class="large-9 medium-6 small-6 columns ">
@@ -29,38 +28,33 @@
                 </header>
         </main> 
         
-        
         <div class="cd-panel from-right">
                 <header class="cd-panel-header">
-                    <h6>Please Login</h6>
+                    <h6>MENU</h6>
                     <a href="#0" class="cd-panel-close">Close</a>
                 </header>
                 <div class="cd-panel-container">
                     <div class="cd-panel-content">
                         <ul>
-                            <h1><?php echo "Welcome Guest   !"; ?></h1></br>                            
+                            <h1><?php echo "Welcome " . $id . "!"; ?></h1></br> 
+                            <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
+                            <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>
+                            <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
+                            <?php if ($level == 3): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
+                            <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
                         </ul>
                     </div> <!-- cd-panel-content -->
                 </div> <!-- cd-panel-container -->
         </div> <!-- cd-panel -->
+            
+        <div class="padded-top"><h1>Schedule Editor</h1></div>  
         
-        <div class="padded-top"><h1>Login</h1></div>     
-        
-        <?php echo validation_errors(); ?> 
-        <!--        appoints the form to the checkLogin function-->
-        <?php echo form_open('LoginController/checkLogin') ?>
-
-        ID: <br/>
-        <input type="text" name="id"/><br/>
-
-        Password: <br/>
-        <input type="password" name='password'/><br/>
-
-        <input type="hidden" name="form" value="Login"/>
-
-        <input type="submit" value='Log in' name='Login'/>
-        <form/>   
-        
+        <p1>
+        Monday---------------Tuesday---------------Wednesday-------------Thursday
+    </p1></div>
+    <p1><div>
+        Suck yo motha-------Suck yo sista---------Suck yo fatha-----------Suck yo brotha!
+    </p1></div>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
@@ -70,6 +64,4 @@
             $(document).foundation();
         </script>
     </body>
-    
 </html>
-

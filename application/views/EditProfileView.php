@@ -29,8 +29,7 @@
         
         <div class="cd-panel from-right">
                 <header class="cd-panel-header">
-                    <?php if ($level == 0): ?><h6>LOGIN</h6>
-                    <?php else: ?><h6>MENU</h6><?php endif; ?>
+                    <h6>MENU</h6>
                     <a href="#0" class="cd-panel-close">Close</a>
                 </header>
                 <div class="cd-panel-container">
@@ -38,15 +37,32 @@
                         <ul>
                             <h1><?php echo "Welcome " . $id . "!"; ?></h1></br> 
                             <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
-                            <?php if ($level == 1): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
-                            <?php if ($level == 2): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
+                            <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
+                            <?php if ($level == 3): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
+                            <?php if ($level > 3): ?><li><a href="<?= site_url('ScheduleEditorController') ?>">Schedule Editor</a></li><?php endif; ?>
                             <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
                         </ul>
                     </div> <!-- cd-panel-content -->
                 </div> <!-- cd-panel-container -->
         </div> <!-- cd-panel -->
         
-        <div class="padded-top"><h1>Edit Profile</h1></div>
+      <!--  <div class="padded-top"><h1>Edit Profile</h1></div> -->
+        
+        <div class="padded-top"><h1> Change Password </h1>
+
+        <?php echo validation_errors(); ?> 
+        <?php echo form_open('EditProfileController/ChangePassword') ?>
+
+        Current Password: 
+        <input type="password" name="password"/>
+
+        New Password:
+        <input type="password" name='newPassword'/>
+        Confirm New Password:
+        <input type="password" name='confNewPassword'/>
+
+        <input type="submit" value='Submit' name='submit'/>
+        <form/>  
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>

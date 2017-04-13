@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 class StateAvailabilityController extends CI_Controller {
 
@@ -12,7 +12,7 @@ class StateAvailabilityController extends CI_Controller {
 
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
 
-            if ($data['level'] == 2) {
+            if ($data['level'] == 3) {
                 $this->load->view('StateAvailabilityView', $data);
             } else {
                 $this->load->view('HomeView', $data);

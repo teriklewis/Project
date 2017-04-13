@@ -30,8 +30,7 @@
         
         <div class="cd-panel from-right">
                 <header class="cd-panel-header">
-                    <?php if ($level == 0): ?><h6>LOGIN</h6>
-                    <?php else: ?><h6>MENU</h6><?php endif; ?>
+                    <h6>MENU</h6>
                     <a href="#0" class="cd-panel-close">Close</a>
                 </header>
                 <div class="cd-panel-container">
@@ -39,15 +38,23 @@
                         <ul>
                             <h1><?php echo "Welcome " . $id . "!"; ?></h1></br> 
                             <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>
-                            <?php if ($level == 1): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
-                            <?php if ($level == 2): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
+                            <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
+                            <?php if ($level == 3): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
+                            <?php if ($level > 3): ?><li><a href="<?= site_url('ScheduleEditorController') ?>">Schedule Editor</a></li><?php endif; ?>
                             <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
                         </ul>
                     </div> <!-- cd-panel-content -->
                 </div> <!-- cd-panel-container -->
         </div> <!-- cd-panel -->
             
-        <div class="padded-top"><h1> Class Scheduler</h1></div>  
+        <div class="padded-top"><h1>Schedule</h1></div>  
+        
+        <p1>
+        Monday---------------Tuesday---------------Wednesday-------------Thursday
+    </p1></div>
+    <p1><div>
+        Suck yo motha-------Suck yo sista---------Suck yo fatha-----------Suck yo brotha!
+    </p1></div>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
