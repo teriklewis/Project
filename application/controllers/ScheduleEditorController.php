@@ -13,7 +13,10 @@ class ScheduleEditorController extends CI_Controller {
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
             
             if($data['level'] > 3) {
-                //sending $data to the HomeView and displaying the view
+                
+                $this->load->model('CourseModel');
+                $data['courses'] = $this->CourseModel->getCourses();
+                
             $this->load->view('ScheduleEditorView', $data);
             } else {
                 redirect('HomeController');
@@ -21,6 +24,16 @@ class ScheduleEditorController extends CI_Controller {
         } else {
             redirect('LoginController');
         }
+    }
+    
+    public function EditCourse() { //edits the time location and teachers 
+        $course['ID'] = $this->input->get('ID');
+        if ($this->input->post('title') != "") {$data['Title'] = $this->input->post('title');
+        }if ($this->input->post('fname') != "") {$data['FirstName'] = $this->input->post('fname');
+        }if ($this->input->post('time') != "") {$data['Time'] = $this->input->post('lname');
+        }if ($this->input->post('location') != "") {$data['Location'] = $this->input->post('position');
+        }
+     
     }
 
 }

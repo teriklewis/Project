@@ -49,12 +49,26 @@
             
         <div class="padded-top"><h1>Schedule Editor</h1></div>  
         
-        <p1>
-        Monday---------------Tuesday---------------Wednesday-------------Thursday
-    </p1></div>
-    <p1><div>
-        Suck yo motha-------Suck yo sista---------Suck yo fatha-----------Suck yo brotha!
-    </p1></div>
+        <table>
+            <caption>Courses</caption>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Lecturer</th>
+                <th>Time</th>
+            </tr>
+            
+            <?php foreach ($courses as $c): ?>
+                <tr>
+                    <td><?php echo $c->CourseCode . " "; ?></td>
+                    <td><?php echo $c->CourseName . " "; ?></td>
+                    <td><?php if ($c->cid != NULL) {echo $c->cid . " ";} else if($c->lid != NULL) {echo $c->lid . " ";} else {echo " - ";}?></td>
+                    <td><?php if ($c->time != NULL) {echo $c->time . " ";} {echo " - ";} ?></td>
+                </tr>
+            <?php endforeach; ?>
+                
+        </tbody>
+    </table>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
