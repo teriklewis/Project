@@ -21,8 +21,7 @@
                         </div> <!--box-->
                         <div class="large-1 medium-2 small-2 columns bx_ltgreen">
                             <ul class="mnu_top">
-                                <li class="text-center"><a href="#0" class="cd-btn"><img src="<?php echo base_url(); ?>/theme/assets/library_menu.png" alt="menu icon"></a></li>
-                                <li class="text-center txt_lgreen show-for-medium-up">Site <br>menu</li>
+                                <li class="text-center"><a href="#0" class="cd-btn"><img src="<?php echo base_url(); ?>/theme/assets/menu_icon.png" alt="menu icon"></a></li>
                             </ul>       
                         </div> <!--box-->
                     </div> <!--row-->
