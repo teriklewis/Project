@@ -46,6 +46,32 @@
         
         <div class="padded-top"><h1>Request a Course</h1></div>
         
+        <?php echo validation_errors(); ?> 
+        <!--        appoints the form to the request function-->
+        <?php echo form_open('RequestCourseController/request') ?>
+
+        Course: <br/>
+        <select name="courseCode">
+                    <option value=""> - Please select a course - </option>
+                    <?php foreach ($courses as $c): ?>                        
+                        <option value="<?php echo $c->CourseCode; ?>"><?php echo $c->CourseCode . " - " . $c->CourseName; ?></option>
+                    <?php endforeach; ?>
+                </select></br></br>
+                
+        Semester (Optional): </br>
+        <select name="semester">
+            <option value ="">- No semester selected -</option>
+            <option value ="1">1st Semester</option>
+            <option value ="2">2nd Semester</option>
+        </select> </br></br>
+        
+        Preferred Day/Time - Please describe (Optional): </br>
+         <input type="text" name="preferences"/>
+         </br>
+
+        <input type="submit" value='Submit' name='Login'/>
+        <form/>   
+        
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/scripts.js"></script>
