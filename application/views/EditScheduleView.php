@@ -168,8 +168,8 @@
                         </tr>
                         <tr>
                             <td>3:05</td>
-                            <th>Computer Science Lab</br></br>Computer Room</br></br>Linux Lab</br></br>New Building Computer Lab</th>
-                            <td>chapel</br></br>chapel</br></br>chapel</br></br>chapel</td> <!--Monday/Wednesday Block -->
+                            <th>Computer Science Lab</br></br></br>Computer Room</br></br></br>Linux Lab</br></br></br>New Building Computer Lab</th>
+                            <td>chapel</br></br></br>chapel</br></br></br>chapel</br></br></br>chapel</td> <!--Monday/Wednesday Block -->
 
                             <td> <!--Tuesday/Thursday Block
                                 <!--Computer Science Lab-->
@@ -187,11 +187,11 @@
                                         ?></br>
                                         <?php echo $s->lecturerName; ?> </br>
                                         <a href="<?= site_url("ScheduleEditorController/editCourse1?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$csl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName") ?>">Edit</a></br>
-                                    <?php endif; ?>
+                                    <?php endif; ?> 
                                 <?php endforeach; ?>
 
                                 <?php if ($tt305cs == false): ?>
-                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?time=3:05&day=tt&classroom=$csl&semester=$semester") ?>">Add</a></br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?time=3:05&day=tt&classroom=$csl&semester=$semester") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Computer Room-->
@@ -208,7 +208,7 @@
                                 <?php endforeach; ?>
 
                                 <?php if ($tt305cr == false): ?>
-                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=3:05&day=tt&classroom=$csl") ?>">Add</a></br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=3:05&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -220,11 +220,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt305ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=3:05&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -236,17 +237,18 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt305nb == false): ?>
-                                free</br></br>
+                                <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=3:05&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
                         <tr>
                             <td>4:30</td>
-                            <th>Computer Science Lab</br></br>Computer Room</br></br>Linux Lab</br></br>New Building Computer Lab</th>
+                            <th>Computer Science Lab</br></br></br>Computer Room</br></br></br>Linux Lab</br></br></br>New Building Computer Lab</th>
                             <td> <!--Monday/Wednesday Block -->
                                 <!--Computer Science Lab-->
                                 <?php $mw430cs = false; ?>
@@ -257,26 +259,29 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw430cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw430cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
                                     <?php
                                     if ($s->time == "4:30" && $s->day == "mw" && $s->classroom == "Computer Room"):
-                                        $mw305cr = true;
+                                        $mw430cr = true;
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw430cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -288,11 +293,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw430ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -304,11 +310,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw430nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -322,12 +329,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt430cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $tt430cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -337,11 +346,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt430cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -353,11 +363,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt430ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -369,17 +380,18 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:30&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt430nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:30&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
                         <tr>
                             <td>5:55</td>
-                            <th>Computer Science Lab</br></br>Computer Room</br></br>Linux Lab</br></br>New Building Computer Lab</th>
+                            <th>Computer Science Lab</br></br></br>Computer Room</br></br></br>Linux Lab</br></br></br>New Building Computer Lab</th>
                             <td> <!--Monday/Wednesday Block -->
                                 <!--Computer Science Lab-->
                                 <?php $mw555cs = false; ?>
@@ -390,12 +402,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw555cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw555cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -405,11 +419,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw555cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -421,11 +436,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw555ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -437,11 +453,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw555nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -455,12 +472,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt555cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $tt555cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -470,11 +489,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt555cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -486,11 +506,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt555ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -502,17 +523,18 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=5:55&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt555nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=5:55&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
                         <tr>
                             <td>7:20</td>
-                            <th>Computer Science Lab</br></br>Computer Room</br></br>Linux Lab</br></br>New Building Computer Lab</th>
+                            <th>Computer Science Lab</br></br></br>Computer Room</br></br></br>Linux Lab</br></br></br>New Building Computer Lab</th>
                             <td> <!--Monday/Wednesday Block -->
                                 <!--Computer Science Lab-->
                                 <?php $mw720cs = false; ?>
@@ -523,12 +545,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw720cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw720cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -538,11 +562,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw720cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -554,11 +579,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw720ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -570,11 +596,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw720nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -588,11 +615,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt720cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                                 <!--Computer Room-->
                                 <?php $tt720cr = false; ?>
@@ -603,11 +631,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt720cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -619,11 +648,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt720ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -635,11 +665,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=7:20&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt720nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=7:20&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -659,7 +690,7 @@
 
                         <tr>
                             <td>8:00</td>
-                            <th>Computer Science Lab</br></br>Computer Room</br></br>Linux Lab</br></br>New Building Computer Lab</th>
+                            <th>Computer Science Lab</br></br></br>Computer Room</br></br></br>Linux Lab</br></br></br>New Building Computer Lab</th>
                             <td> <!--Monday/Wednesday Block -->
                                 <!--Computer Science Lab-->
                                 <?php $mw800cs = false; ?>
@@ -670,12 +701,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw800cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw800cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -685,11 +718,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw800cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -701,11 +735,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw800ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -717,11 +752,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw800nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -735,11 +771,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt800cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                                 <!--Computer Room-->
                                 <?php $tt800cr = false; ?>
@@ -750,11 +787,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt800cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -766,11 +804,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt800ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -782,11 +821,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=8:00&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt800nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=8:00&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -803,12 +843,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw1040cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw1040cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -818,11 +860,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw1040cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -834,11 +877,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw1040ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -850,11 +894,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw1040nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -868,12 +913,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt1040cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $tt1040cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -883,11 +930,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt1040cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -899,11 +947,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt1040ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -915,11 +964,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=10:40&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt1040nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=10:40&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         <tr>
@@ -935,12 +985,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw120cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw120cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -950,11 +1002,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw120cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -966,11 +1019,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw120ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -982,11 +1036,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw120nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -1000,12 +1055,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt120cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $tt120cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -1015,11 +1072,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt120cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -1031,11 +1089,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt120ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -1047,17 +1106,18 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=1:20&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt120nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=1:20&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
                         <tr>
                             <td>4:00</td>
-                            <th>Computer Science Lab</br></br>Computer Room</br></br>Linux Lab</br></br>New Building Computer Lab</th>
+                            <th>Computer Science Lab</br></br></br>Computer Room</br></br></br>Linux Lab</br></br></br>New Building Computer Lab</th>
                             <td> <!--Monday/Wednesday Block -->
                                 <!--Computer Science Lab-->
                                 <?php $mw400cs = false; ?>
@@ -1068,12 +1128,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw400cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw400cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -1083,11 +1145,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw400cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -1099,11 +1162,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw400ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -1115,11 +1179,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw400nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -1133,12 +1198,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt400cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $tt400cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -1148,11 +1215,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt400cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -1164,11 +1232,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt400ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -1180,11 +1249,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=4:00&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt400nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=4:00&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -1201,12 +1271,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=mw&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw640cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=mw&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $mw640cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -1216,11 +1288,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=mw&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw640cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=mw&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -1232,11 +1305,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=mw&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw640ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=mw&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -1248,11 +1322,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=mw&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($mw640nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=mw&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td> 
 
@@ -1266,12 +1341,14 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=tt&classroom=$csl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt640cs == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=tt&classroom=$csl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
+                                    
                                 <!--Computer Room-->
                                 <?php $tt640cr = false; ?>
                                 <?php foreach ($scheduledCourse as $s): ?>                        
@@ -1281,11 +1358,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=tt&classroom=$cr") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt640cr == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=tt&classroom=$cr") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--Linux Lab-->
@@ -1297,11 +1375,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=tt&classroom=$ll") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt640ll == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=tt&classroom=$ll") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
 
                                 <!--New Building Computer Lab-->
@@ -1313,11 +1392,12 @@
                                         echo $s->CourseName;
                                         ?></br>
                                         <?php echo $s->lecturerName; ?></br>
+                                        <a href="<?= site_url("ScheduleEditorController/addCourse1?courseCode=$s->CourseCode&time=6:40&day=tt&classroom=$nbcl") ?>">Edit</a></br>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
                                 <?php if ($tt640nb == false): ?>
-                                    free</br></br>
+                                    <a href="<?= site_url("ScheduleEditorController/addCourse1?&time=6:40&day=tt&classroom=$nbcl") ?>">Add</a></br></br></br>
                                 <?php endif; ?>
                             </td>
                         </tr>

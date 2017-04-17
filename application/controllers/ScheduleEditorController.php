@@ -271,6 +271,8 @@ class ScheduleEditorController extends CI_Controller {
         $data['classroom'] = $this->input->get('classroom');
         $data['lecturerID'] = $this->input->get('lecturerID');
         $data['lecturerName'] = $this->input->get('lecturerName');
+        
+        
     }
 
     public function EditCourse() { //edits the time location and teachers 
