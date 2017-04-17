@@ -1,6 +1,6 @@
 <?php
 
-class LoginModel extends CI_Model { 
+class LoginModel extends CI_Model {
 
     public function login($id, $pass) {
         $this->db->select('id', 'password'); //reading from the columns "username" and "password"
@@ -18,7 +18,7 @@ class LoginModel extends CI_Model {
     }
 
     public function checkLevel($id) {
-//function to find level of user
+        //function to find level of user
         //read entire login table
         $query = $this->db->get('logininfo');
         //gives login the results from the query as objects per row
@@ -33,13 +33,65 @@ class LoginModel extends CI_Model {
             }
         }
     }
-    
+
     public function changePassword($id, $newPass) {
         $this->db->where('id', $id);
         $this->db->set('password', sha1($newPass));
         $this->db->update('logininfo');
         echo '<script>alert("Password Successfully Changed!");</script>';
         redirect(site_url('EditProfileController'), 'refresh');
+    }
+
+    public function getName($id) {
+        
+        if ($this->checkLevel($id) == 1) {
+            //get name from lecturer table
+            $query = $this->db->get('lecturers');
+            $login = $query->result();
+
+            foreach ($login as $r) {
+                if ($r->id == $id) {
+                    $name = $r->firstName ." ". $r->lastName;
+                    return $name;
+                }
+            }
+            
+        } else if ($this->checkLevel($id) == 2) {
+            //get name from student table
+            $query = $this->db->get('student');
+            $login = $query->result();
+
+            foreach ($login as $r) {
+                if ($r->id == $id) {
+                    $name = $r->firstName ." ". $r->lastName;
+                    return $name;
+                }
+            }
+            
+        } else if ($this->checkLevel($id) == 3) {
+            //get name from contract lecturer table
+            $query = $this->db->get('contractlecturers');
+            $login = $query->result();
+
+            foreach ($login as $r) {
+                if ($r->id == $id) {
+                    $name = $r->firstName ." ". $r->lastName;
+                    return $name;
+                }
+            }
+            
+        } else {
+            //get name from admin table
+            $query = $this->db->get('admin');
+            $login = $query->result();
+
+            foreach ($login as $r) {
+                if ($r->id == $id) {
+                    $name = $r->firstName ." ". $r->lastName;
+                    return $name;
+                }
+            }
+        }
     }
 
 }

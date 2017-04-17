@@ -16,7 +16,7 @@
                 <header id="aminbar_header" class="aminbar_header fixed bar_top bx_dkgreen cd-header">
                     <div class="row fullrow">
                         <div class="large-9 medium-6 small-6 columns ">
-                            <a href="HomeController"><p class="logo_top"><img src="<?php echo base_url(); ?>/theme/assets/yay.png" width="98" height="98" alt="usc logo"></a>
+                            <a href="<?php echo site_url('HomeController') ?>"><p class="logo_top"><img src="<?php echo base_url(); ?>/theme/assets/yay.png" width="98" height="98" alt="usc logo"></a>
                         </div> <!--box-->
                         <div class="large-1 medium-2 small-2 columns bx_ltgreen">
                             <ul class="mnu_top">
@@ -36,38 +36,28 @@
                 <div class="cd-panel-container">
                     <div class="cd-panel-content">
                         <ul>
-                            <h1><?php echo "Welcome " . $id . "!"; ?></h1></br> 
+                            <h1><?php echo "Welcome ";?></br> </h1>
+                            <h2><?php echo $name; ?></h2>
+                            <h2><?php echo "ID: " . $id; ?></h2></br>
+                            
                             <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
-                            <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>
-                            <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
-                            <?php if ($level == 3): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
+                            <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>                         
                             <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
+                            <?php if ($level == 4): ?></br></br>
+                            <h2><?php echo "Scheduler Tools"; ?></h2>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditSchedule') ?>">Edit Schedule</a></li>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div> <!-- cd-panel-content -->
                 </div> <!-- cd-panel-container -->
         </div> <!-- cd-panel -->
             
-        <div class="padded-top"><h1>Schedule Editor</h1></div>  
-        
-        <table>
-            <caption>Courses</caption>
-            <tr>
-                <th>Course ID</th>
-                <th>Course Name</th>
-                <th>Lecturer</th>
-                <th>Time</th>
-            </tr>
-            
-            <?php foreach ($courses as $c): ?>
-                <tr>
-                    <td><?php echo $c->CourseCode . " "; ?></td>
-                    <td><?php echo $c->CourseName . " "; ?></td>
-                    <td><?php if ($c->cid != NULL) {echo $c->cid . " ";} else if($c->lid != NULL) {echo $c->lid . " ";} else {echo " - ";}?></td>
-                    <td><?php if ($c->time != NULL) {echo $c->time . " ";} {echo " - ";} ?></td>
-                </tr>
-            <?php endforeach; ?>
-                
-        </tbody>
+        <div class="padded-top"><h1>Administrator Panel</h1></div>  
+        <p>you can do stuff here
+           each course must have a lecturer and a classroom before you can submit you schedule for approval by the dean
+           </br> then the dean can sumbit it for approval by the vpaa, and then once they approve, they can publish it. final.
+        </p>
     </table>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>

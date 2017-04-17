@@ -15,7 +15,7 @@
                 <header id="aminbar_header" class="aminbar_header fixed bar_top bx_dkgreen cd-header">
                     <div class="row fullrow">
                         <div class="large-9 medium-6 small-6 columns ">
-                            <a href="HomeController"><p class="logo_top"><img src="<?php echo base_url(); ?>/theme/assets/yay.png" width="98" height="98" alt="library logo"></a>
+                            <a href="<?php echo site_url('HomeController') ?>"><p class="logo_top"><img src="<?php echo base_url(); ?>/theme/assets/yay.png" width="98" height="98" alt="library logo"></a>
                         </div> <!--box-->
                         <div class="large-1 medium-2 small-2 columns bx_ltgreen">
                             <ul class="mnu_top">
@@ -35,12 +35,20 @@
                 <div class="cd-panel-container">
                     <div class="cd-panel-content">
                         <ul>
-                            <h1><?php echo "Welcome " . $id . "!"; ?></h1></br> 
+                            <h1><?php echo "Welcome ";?></br> </h1>
+                            <h2><?php echo $name; ?></h2>
+                            <h2><?php echo "ID: " . $id; ?></h2></br>
+                            
                             <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
-                            <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
+                            <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Requests</a></li><?php endif; ?>
                             <?php if ($level == 3): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
-                            <?php if ($level > 3): ?><li><a href="<?= site_url('ScheduleEditorController') ?>">Schedule Editor</a></li><?php endif; ?>
+                            <?php if ($level > 3): ?><li><a href="<?= site_url('ScheduleEditorController') ?>">Schedule Admin Panel</a></li><?php endif; ?>
                             <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
+                            <?php if ($level == 4): ?></br></br>
+                            <h2><?php echo "Scheduler Tools"; ?></h2>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditSchedule') ?>">Edit Schedule</a></li>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div> <!-- cd-panel-content -->
                 </div> <!-- cd-panel-container -->

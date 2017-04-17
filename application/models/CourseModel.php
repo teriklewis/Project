@@ -18,5 +18,11 @@ class CourseModel extends CI_Model {
             }
         }
     }
+    
+    public function addCourse($data, $semester) {
+        $this->db->insert("$semester", $data);
+        echo '<script>alert("Course addded to schedule. Go suck yo motha!");</script>';
+        redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
+    }
 }
 

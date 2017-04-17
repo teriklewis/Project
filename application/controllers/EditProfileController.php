@@ -9,8 +9,10 @@ class EditProfileController extends CI_Controller {
 
             //load the home model to the controller
             $this->load->model('LoginModel');
-
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
+            
+            $this->load->model('LoginModel');
+            $data['name'] = $this->LoginModel->getName($data['id']);
             
             //sending $data to the EditProfileView and displaying the view
             $this->load->view('EditProfileView', $data);

@@ -3,7 +3,21 @@
 class LoginController extends CI_Controller {
 
     public function index() {
-        $this->load->view('LoginView');
+        if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            $data['id'] = $session_data;
+            
+            $this->load->model('LoginModel');
+            $data['name'] = $this->LoginModel->getName($data['id']);       
+            $data['level'] = $this->LoginModel->checkLevel($data['id']);
+            
+            //sending $data to the HomeView and displaying the view
+            $data['semester'] = "unselected";
+            $this->load->view('HomeView', $data);
+        } else {
+            $this->load->view('LoginView');
+        }
+        
     }
 
     public function checkLogin() {

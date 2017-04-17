@@ -11,11 +11,12 @@
     </head>
 
     <body>
+
         <main class="cd-main-content">
             <header id="aminbar_header" class="aminbar_header fixed bar_top bx_dkgreen cd-header">
                 <div class="row fullrow">
                     <div class="large-9 medium-6 small-6 columns ">
-                        <a href="<?php echo site_url('HomeController') ?>"><p class="logo_top"><img src="<?php echo base_url(); ?>/theme/assets/yay.png" width="98" height="98" alt="library logo"></a>
+                        <a href="<?php echo site_url('HomeController') ?>"><p class="logo_top"><img src="<?php echo base_url(); ?>/theme/assets/yay.png" width="98" height="98" alt="usc logo"></a>
                     </div> <!--box-->
                     <div class="large-1 medium-2 small-2 columns bx_ltgreen">
                         <ul class="mnu_top">
@@ -25,7 +26,7 @@
                     </div> <!--box-->
                 </div> <!--row-->
             </header>
-        </main>
+        </main> 
 
         <div class="cd-panel from-right">
             <header class="cd-panel-header">
@@ -37,45 +38,43 @@
                     <ul>
                         <h1><?php echo "Welcome "; ?></br> </h1>
                         <h2><?php echo $name; ?></h2>
-                        <h2><?php echo "ID: " . $id; ?></h2></br>
+                        <h2><?php echo "ID: " . $id; ?></h2></br> 
 
                         <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
                         <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>
+                        <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
+                        <?php if ($level > 3): ?><li><a href="<?= site_url('ScheduleEditorController') ?>">Schedule Admin Panel</a></li><?php endif; ?>
                         <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
+                        <?php if ($level == 4): ?></br></br>
+                            <h2><?php echo "Scheduler Tools"; ?></h2>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div> <!-- cd-panel-content -->
             </div> <!-- cd-panel-container -->
-        </div> <!-- cd-panel -->
+        </div> <!-- cd-panel -->  
 
-        <div class="padded-top"><h1>Requests</h1></div>
-        
-        <?php $request = false; 
-        foreach ($requests as $r) {
-            if ($id == $r->id) {
-                $request = true;
-            }
-        } 
-        if ($request == true): ?>
+        <div class="padded-top"><h1>Add a course</br></h1></div>
         
         <h1><table>
-                <caption>Your Requests</caption>
+                <caption>Adding Course</caption>
                 <tr>
                     <th>Course Code</th>
                     <th>Course Name</th>
                     <th>Semester</th>
                     <th>Preferences</th>
-                    <th>Status</th>
                 </tr>
 
-                
                     <?php foreach ($requests as $r): ?>
-                        <?php if ($id == $r->id): ?>
+                        <?php if ($reqID == $r->reqID): ?>
                     <tr>
                         <td><?php echo $r->courseCode . " "; ?></td>
+                        <?php $courseCode = $r->courseCode; ?>
                         <td><?php echo $r->courseName . " "; ?></td>
                         <td><?php
                             if ($r->semester != NULL) {
                             echo $r->semester . " ";
+                            $semester = $r->semester;
                             } else {
                             echo " - ";
                             }
@@ -87,7 +86,6 @@
                             echo " - ";
                             }
                             ?></td>
-                        <td><?php echo $r->status . " "; ?></td>
 
                     </tr>
                     <?php endif; ?> 
@@ -95,38 +93,27 @@
 
                 </tbody>
             </table></h1>
-        <?php else: ?> 
-        <h2>You have no requests stored</h2>
-        <?php endif; ?>
-        </br>
-        <h1> Request a Course</h1>
-        <?php echo validation_errors(); ?> 
-        <!--        appoints the form to the request function-->
-        <?php echo form_open('RequestCourseController/request') ?>
-
-        Course: <br/>
-        <select name="courseCode">
-            <option value=""> - Please select a course - </option>
-            <?php foreach ($courses as $c): ?>                        
-                <option value="<?php echo $c->CourseCode; ?>"><?php echo $c->CourseCode . " - " . $c->CourseName; ?></option>
-            <?php endforeach; ?>
-        </select></br></br>
-
-        Semester (Optional): </br>
-        <select name="semester">
-            <option value ="">- No semester selected -</option>
-            <option value ="1">1st Semester</option>
-            <option value ="2">2nd Semester</option>
-            <option value ="3">3rd Semester</option>
+        
+            <?php echo form_open("ScheduleEditorController/step2?courseCode=$courseCode&reqID=$reqID") ?>
+            <h1>Step 1</h1>
+            <h2>Select the semester</h2>
+            
+            <select name="semester">
+            <option value ="firstsem">1st Semester<?php if($semester == "firstsem"): ?> (Recommended)<?php endif; ?></option>
+            <option value ="secondsem">2nd Semester<?php if($semester == "secondsem"): ?> (Recommended)<?php endif; ?></option>
+            <option value ="thirdsem">3rd Semester<?php if($semester == "thirdsem"): ?> (Recommended)<?php endif; ?></option>
+            </select>
+            
+            </br></br>
+            <h2>Select the day</h2>
+            <select name="day">
+            <option value ="mw">Monday/Wednesday</option>
+            <option value ="tt">Tuesday/Thursday</option>
+            
         </select> </br></br>
-
-        Preferred Day/Time - Please describe (Optional): </br>
-        <input type="text" name="preferences"/>
-        </br>
-
-        <input type="submit" value='Submit' name='Login'/>
-        <form/>   
-
+        <h2><input type="submit" value='Go' name='submit'/></h2>
+        <form/> </br>
+        
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/scripts.js"></script>
@@ -134,6 +121,5 @@
         <script>
             $(document).foundation();
         </script>
-
-
     </body>
+</html>

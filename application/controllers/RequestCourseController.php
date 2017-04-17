@@ -9,10 +9,14 @@ class RequestCourseController extends CI_Controller {
 
             $this->load->model('LoginModel');
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
-
+            $data['name'] = $this->LoginModel->getName($data['id']);
+            
             if ($data['level'] == 2) {
                 $this->load->model('CourseModel');
                 $data['courses'] = $this->CourseModel->getCourses();
+                
+                $this->load->model('RequestModel');
+                $data['requests'] = $this->RequestModel->getRequests();
                 
                 $this->load->view('RequestCourseView', $data);
             } else {
