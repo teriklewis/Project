@@ -117,8 +117,6 @@ class ScheduleEditorController extends CI_Controller {
         $data['reqID'] = $this->input->get('id');
         $this->load->model('RequestModel');
 
-        $this->RequestModel->approveRequest($data['reqID']);
-
         $data['requests'] = $this->RequestModel->getRequests();
         $data['courseCode'] = $this->RequestModel->getCourseCode($data['reqID']);
 
@@ -262,12 +260,13 @@ class ScheduleEditorController extends CI_Controller {
         $data['lecturer'] = $this->HomeModel->getLecturers();
         $data['schedule'] = $this->HomeModel->getSchedule($data['semester']);
         $data['availability'] = $this->HomeModel->getAvailability();
-
+        $this->RequestModel->approveRequest($data['reqID']);
         $data['type'] = "request";
-        
+
         $this->load->view('step4view', $data);
         //select lecturer. can be set to TBA
     }
+
     public function step4b($data) {
         $session_data = $this->session->userdata('logged_in');
         $data['id'] = $session_data;
@@ -286,7 +285,7 @@ class ScheduleEditorController extends CI_Controller {
         $data['lecturer'] = $this->HomeModel->getLecturers();
         $data['schedule'] = $this->HomeModel->getSchedule($data['semester']);
         $data['availability'] = $this->HomeModel->getAvailability();
-        
+
         $this->load->view('step4view', $data);
         //select lecturer. can be set to TBA
     }
@@ -301,16 +300,20 @@ class ScheduleEditorController extends CI_Controller {
         $data['time'] = $this->input->get('time');
         $data['classroom'] = $this->input->get('classroom');
         $data['lecturerID'] = $this->input->post('lecturerID');
-
         $this->load->model('LoginModel');
-        $data['lecturerName'] = $this->LoginModel->getName($data['lecturerID']);
+        if ($data['lecturerID'] == "TBA") {
+            $data['lecturerID'] = 0;
+            $data['lecturerName'] =" To be announced";
+        } else {
 
+            $data['lecturerName'] = $this->LoginModel->getName($data['lecturerID']);
+        }
         $credits = $this->CourseModel->getCourseCredits($data['courseCode']);
         $data['level'] = $this->LoginModel->checkLevel($data['lecturerID']);
         $noCredits = $this->LoginModel->getNoCredits($data['lecturerID'], $data['level']);
-        
+
         $data['newNoCredits'] = $credits + $noCredits;
-        
+
         $this->CourseModel->setNoCredits($data);
         $this->CourseModel->addCourse($data, $semester);
     }
@@ -324,21 +327,6 @@ class ScheduleEditorController extends CI_Controller {
         $data['classroom'] = $this->input->get('classroom');
         $data['lecturerID'] = $this->input->get('lecturerID');
         $data['lecturerName'] = $this->input->get('lecturerName');
-        
-        
-    }
-
-    public function EditCourse() { //edits the time location and teachers 
-        $course['ID'] = $this->input->get('ID');
-        if ($this->input->post('title') != "") {
-            $data['Title'] = $this->input->post('title');
-        }if ($this->input->post('fname') != "") {
-            $data['FirstName'] = $this->input->post('fname');
-        }if ($this->input->post('time') != "") {
-            $data['Time'] = $this->input->post('lname');
-        }if ($this->input->post('location') != "") {
-            $data['Location'] = $this->input->post('position');
-        }
     }
 
 }

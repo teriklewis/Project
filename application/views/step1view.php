@@ -55,7 +55,6 @@
         </div> <!-- cd-panel -->  
 
         <div class="padded-top"><h1>Add a course</br></h1></div>
-        
         <h1><table>
                 <caption>Adding Course</caption>
                 <tr>
@@ -93,7 +92,7 @@
 
                 </tbody>
             </table></h1>
-        
+            
             <?php echo form_open("ScheduleEditorController/step2?courseCode=$courseCode&reqID=$reqID") ?>
             <h1>Step 1</h1>
             <h2>Select the semester</h2>
@@ -111,7 +110,8 @@
             <option value ="tt">Tuesday/Thursday</option>
             
         </select> </br></br>
-        <h2><input type="submit" value='Go' name='submit'/></h2>
+        
+        <h2><input type="submit" value='Next' name='submit'/></h2>
         <form/> </br>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>

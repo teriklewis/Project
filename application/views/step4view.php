@@ -55,68 +55,68 @@
         </div> <!-- cd-panel -->  
 
         <div class="padded-top"><h1>Add a course</br></h1></div>
-        <?php if($type == "request"): ?>
-        <h1><table>
-                <caption>Adding Course</caption>
-                <tr>
-                    <th>Course Code</th>
-                    <th>Course Name</th>
-                    <th>Semester</th>
-                    <th>Preferences</th>
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Classroom</th>
-                </tr>
-                
-                <?php foreach ($requests as $r): ?>
-                    <?php if ($reqID == $r->reqID): ?>
-                        <tr>
-                            <td><?php echo $r->courseCode . " "; ?></td>
-                            <?php $courseCode = $r->courseCode; ?>
-                            <td><?php echo $r->courseName . " "; ?></td>
-                            <td><?php echo $semester; ?></td>
-                            <td><?php
-                                if ($r->preferences != NULL) {
-                                    echo $r->preferences . " ";
-                                } else {
-                                    echo " - ";
-                                }
-                                ?></td>
-                            <td><?php echo $day; ?></td>
-                            <td><?php echo $time; ?> </td>
-                            <td><?php echo $classroom ?></td>
-                        </tr>
-                    <?php endif; ?> 
-                <?php endforeach; ?>
+        <?php if ($type == "request"): ?>
+            <h1><table>
+                    <caption>Adding Course</caption>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Semester</th>
+                        <th>Preferences</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Classroom</th>
+                    </tr>
 
+                    <?php foreach ($requests as $r): ?>
+                        <?php if ($reqID == $r->reqID): ?>
+                            <tr>
+                                <td><?php echo $r->courseCode . " "; ?></td>
+                                <?php $courseCode = $r->courseCode; ?>
+                                <td><?php echo $r->courseName . " "; ?></td>
+                                <td><?php echo $semester; ?></td>
+                                <td><?php
+                                    if ($r->preferences != NULL) {
+                                        echo $r->preferences . " ";
+                                    } else {
+                                        echo " - ";
+                                    }
+                                    ?></td>
+                                <td><?php echo $day; ?></td>
+                                <td><?php echo $time; ?> </td>
+                                <td><?php echo $classroom ?></td>
+                            </tr>
+                        <?php endif; ?> 
+                    <?php endforeach; ?>
+
+                    </tbody>
+                </table></h1>
+
+        <?php elseif ($type == "add"): ?>
+            <h1><table>
+                    <caption>Adding Course</caption>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Semester</th> 
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Classroom</th>
+                    </tr>
+                    <tr>
+                        <td><?php echo $CourseCode; ?></td>
+                        <td><?php echo $CourseName; ?></td>
+                        <td><?php echo $semester; ?></td>
+                        <td><?php echo $day; ?></td>
+                        <td><?php echo $time; ?> </td>
+                        <td><?php echo $classroom; ?></td>
+                    </tr>
+                <?php endif; ?>
                 </tbody>
             </table></h1>
-        
-        <?php elseif($type == "add"):?>
-            <h1><table>
-                <caption>Adding Course</caption>
-                <tr>
-                    <th>Course Code</th>
-                    <th>Course Name</th>
-                    <th>Semester</th> 
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Classroom</th>
-                </tr>
-                <tr>
-                    <td><?php echo $CourseCode; ?></td>
-                    <td><?php echo $CourseName; ?></td>
-                    <td><?php echo $semester; ?></td>
-                    <td><?php echo $day; ?></td>
-                    <td><?php echo $time; ?> </td>
-                    <td><?php echo $classroom; ?></td>
-                </tr>
-            <?php endif; ?>
-                </tbody>
-                </table></h1>
-        
+
         <?php echo form_open("ScheduleEditorController/step5?courseCode=$courseCode&semester=$semester&day=$day&time=$time&classroom=$classroom") ?>
-        <?php if($type == "request"): ?><h1>Step 4</h1><?php endif; ?>
+        <?php if ($type == "request"): ?><h1>Step 4</h1><?php endif; ?>
         <h2>Select the lecturer</h2>
 
         <select name="lecturerID">
@@ -124,51 +124,66 @@
             <?php
             foreach ($coursesLectured as $c):
                 if ($c->courseCode == $courseCode) :
-                    ?>                   
-                    <option value ="<?php
+                    
                     if ($c->cid != NULL) {
+                        $busy = false;
+                        foreach ($schedule as $s) {
+                            if ($s->lecturerID == $c->cid && $s->time == $time && $s->day == $day) {
+                                $busy = true;
+                                //if the lecturer isn't occupied at the time
+                            }
+                        }
                         //if lecturer set the time as available
                         //if they aren't occupied in that time
                         //if the sum of the course's credits and their current credits is less than their max creidts
-                        echo $c->cid;
-                        foreach ($contractLecturer as $cl) {
-                            if ($c->cid == $cl->id) {
-                                $lecturerfn = $cl->firstName;
-                                $lecturerln = $cl->lastName;
+                        if ($busy == false) {
+                            echo $c->cid;
+                            foreach ($contractLecturer as $cl) {
+                                if ($c->cid == $cl->id) {
+                                    $lecturerfn = $cl->firstName;
+                                    $lecturerln = $cl->lastName;
+                                }
                             }
+                            ?><option value ="<?php echo $lecturerfn . " " . $lecturerln;
+                            if ($c->preferred == 1) {
+                                echo " (Recommended)";
+                            }
+                            ?>"></option>
+                            <?php 
                         }
                     } else {
-                        $busy = false;
+
                         foreach ($schedule as $s) {
                             if ($s->lecturerID == $c->lid && $s->time == $time && $s->day == $day) {
                                 $busy = true;
                                 //if the lecturer isn't occupied at the time
-                        } }
-                            if($busy == false )
-                            {
-                                echo $c->lid;
-                                foreach ($lecturer as $l) {
-                                    if ($c->lid == $l->id) {
-                                        $lecturerfn = $l->firstName;
-                                        $lecturerln = $l->lastName;
-                                    }
+                            }
+                        }
+                        if ($busy == false) {
+                            echo $c->lid;
+                            foreach ($lecturer as $l) {
+                                if ($c->lid == $l->id) {
+                                    $lecturerfn = $l->firstName;
+                                    $lecturerln = $l->lastName;
                                 }
                             }
-                        
+                            ?><option value ="<?php echo $lecturerfn . " " . $lecturerln;
+                            if ($c->preferred == 1) {
+                                echo " (Recommended)";
+                            }
+                            ?>"></option>
+                            <?php
+                        }
                     }
-                    ?>"><?php echo $lecturerfn . " " . $lecturerln;
-            if ($c->preferred == 1) {
-                echo " (Recommended)";
-            } ?></option>
-                        <?php
-                        endif;
-                    endforeach;
                     ?>
+                <?php endif;
+            endforeach;
+            ?>
 
         </select>
 
     </select> </br></br>
-    <h2><input type="submit" value='Go' name='submit'/></h2>
+    <h2><input type="submit" value='Add Course' name='submit'/></h2>
     <form/> </br>
 
     <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>

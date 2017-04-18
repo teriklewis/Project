@@ -55,7 +55,6 @@
         </div> <!-- cd-panel -->  
 
         <div class="padded-top"><h1>Add a course</br></h1></div>
-        
         <h1><table>
                 <caption>Adding Course</caption>
                 <tr>
@@ -91,21 +90,28 @@
             <?php echo form_open("ScheduleEditorController/step3?courseCode=$courseCode&semester=$semester&day=$day&reqID=$reqID") ?>
             <h1>Step 2</h1>
             <h2>Select the time</h2>
-            
             <select name="time">
+            <?php if($semester != "thirdsem"): ?>
             <option value ="8:00">8:00</option>
             <option value ="9:25">9:25</option>
             <option value ="10:50">10:50</option>
             <option value ="12:15">12:15</option>
             <option value ="1:40">1:40</option>
-            <option value ="3:05">3:05</option>
+            <?php if($day == "tt"): ?><option value ="3:05">3:05</option><?php endif; ?>
             <option value ="4:30">4:30</option>
             <option value ="5:55">5:55</option>
             <option value ="7:20">7:20</option>
+            <?php else: ?>
+            <option value ="8:00">8:00</option>
+            <option value ="10:40">10:40</option>
+            <option value ="1:20">1:20</option>
+            <option value ="4:00">4:00</option>
+            <option value ="6:40">6:40</option>
+            <?php endif; ?>
             </select>
             
         </select> </br></br>
-        <h2><input type="submit" value='Go' name='submit'/></h2>
+        <h2><input type="submit" value='Next' name='submit'/></h2>
         <form/> </br>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
