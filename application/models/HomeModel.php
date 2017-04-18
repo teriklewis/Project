@@ -57,5 +57,7 @@ class HomeModel extends CI_Model {
         $query = $this->db->get('availability');
         return $query->result();
     }
+    
+    
 
 }

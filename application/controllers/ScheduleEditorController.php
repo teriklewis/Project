@@ -131,7 +131,7 @@ class ScheduleEditorController extends CI_Controller {
 
         $this->step1($data);
     }
-    
+
     public function addCourse1() {
         //probably have an intermediate function that lets you pick the course, and sends the course code to this function
         $session_data = $this->session->userdata('logged_in');
@@ -139,17 +139,39 @@ class ScheduleEditorController extends CI_Controller {
         $this->load->model('LoginModel');
         $data['level'] = $this->LoginModel->checkLevel($data['id']);
         $data['name'] = $this->LoginModel->getName($data['id']);
-        
+
         $this->load->model('CourseModel');
-        $data['CourseName'] = $this->CourseModel->getCourseName($data);
+        $data['courses'] = $this->CourseModel->getCourses();
         $data['day'] = $this->input->get('day');
         $data['time'] = $this->input->get('time');
         $data['classroom'] = $this->input->get('classroom');
-        
+        $data['semester'] = $this->input->get('semester');
+
+        $this->load->model('HomeModel');
+        $data['schedule'] = $this->HomeModel->getSchedule($data['semester']);
+        $this->load->view('AddCourseView', $data);
+    }
+
+    public function addCourse2() {
+
+        $session_data = $this->session->userdata('logged_in');
+        $data['id'] = $session_data;
+        $this->load->model('LoginModel');
+        $data['level'] = $this->LoginModel->checkLevel($data['id']);
+        $data['name'] = $this->LoginModel->getName($data['id']);
+
         //get the course code you want to add
         //$data['courseCode'] = $this->input->get/post('courseCode');
 
-        $this->step4($data);
+        $this->load->model('CourseModel');
+        $data['courseCode'] = $this->input->get('CourseCode');
+        $data['CourseName'] = $this->CourseModel->getCourseName($data);
+        $data['CourseCode'] = $data['courseCode'];
+        $data['day'] = $this->input->get('day');
+        $data['time'] = $this->input->get('time');
+        $data['classroom'] = $this->input->get('classroom');
+        $data['type'] = "add";
+        $this->step4b($data);
     }
 
     public function step1($data) {
@@ -241,6 +263,30 @@ class ScheduleEditorController extends CI_Controller {
         $data['schedule'] = $this->HomeModel->getSchedule($data['semester']);
         $data['availability'] = $this->HomeModel->getAvailability();
 
+        $data['type'] = "request";
+        
+        $this->load->view('step4view', $data);
+        //select lecturer. can be set to TBA
+    }
+    public function step4b($data) {
+        $session_data = $this->session->userdata('logged_in');
+        $data['id'] = $session_data;
+
+        $this->load->model('LoginModel');
+        $data['level'] = $this->LoginModel->checkLevel($data['id']);
+        $data['name'] = $this->LoginModel->getName($data['id']);
+        $data['semester'] = $this->input->get('semester');
+
+        $this->load->model('RequestModel');
+        $data['requests'] = $this->RequestModel->getRequests();
+
+        $this->load->model('HomeModel');
+        $data['coursesLectured'] = $this->HomeModel->getCoursesLectured();
+        $data['contractLecturer'] = $this->HomeModel->getContractLecturers();
+        $data['lecturer'] = $this->HomeModel->getLecturers();
+        $data['schedule'] = $this->HomeModel->getSchedule($data['semester']);
+        $data['availability'] = $this->HomeModel->getAvailability();
+        
         $this->load->view('step4view', $data);
         //select lecturer. can be set to TBA
     }
@@ -259,6 +305,13 @@ class ScheduleEditorController extends CI_Controller {
         $this->load->model('LoginModel');
         $data['lecturerName'] = $this->LoginModel->getName($data['lecturerID']);
 
+        $credits = $this->CourseModel->getCourseCredits($data['courseCode']);
+        $data['level'] = $this->LoginModel->checkLevel($data['lecturerID']);
+        $noCredits = $this->LoginModel->getNoCredits($data['lecturerID'], $data['level']);
+        
+        $data['newNoCredits'] = $credits + $noCredits;
+        
+        $this->CourseModel->setNoCredits($data);
         $this->CourseModel->addCourse($data, $semester);
     }
 

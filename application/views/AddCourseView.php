@@ -38,7 +38,7 @@
                     <ul>
                         <h1><?php echo "Welcome "; ?></br> </h1>
                         <h2><?php echo $name; ?></h2>
-                        <h2><?php echo "ID: " . $id; ?></h2></br> 
+                        <h2><?php echo "ID: " . $id; ?></h2></br>
 
                         <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
                         <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>
@@ -47,86 +47,49 @@
                         <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
                         <?php if ($level == 4): ?></br></br>
                             <h2><?php echo "Scheduler Tools"; ?></h2>
-                            <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditSchedule') ?>">Edit Schedule</a></li>
                         <?php endif; ?>
                     </ul>
                 </div> <!-- cd-panel-content -->
             </div> <!-- cd-panel-container -->
-        </div> <!-- cd-panel -->  
+        </div> <!-- cd-panel -->
 
-        <div class="padded-top"><h1>Add a course</br></h1></div>
-        
+        <div class="padded-top"><h1>Add a Course<?php echo " - " . $semester; ?></h1></div>  
+
         <h1><table>
-                <caption>Adding Course</caption>
                 <tr>
                     <th>Course Code</th>
                     <th>Course Name</th>
-                    <th>Semester</th>
-                    <th>Preferences</th>
-                    <th>Day</th>
-                    <th>Time</th>
+                    <th>Add</th>
                 </tr>
-
-                    <?php foreach ($requests as $r): ?>
-                        <?php if ($reqID == $r->reqID): ?>
+                <?php
+                $csl = "Computer Science Lab";
+                $cr = "Computer Room";
+                $ll = "Linux Lab";
+                $nbcl = "New Building Computer Lab";
+                ?>
+                <?php foreach ($courses as $c): 
+                    $exists = false;
+                    ?>
+                    <?php
+                    foreach ($schedule as $s):
+                        if($c->CourseCode == $s->CourseCode) {
+                            $exists = true;
+                        }
+                    endforeach;
+                    ?>
+                    <?php if($exists == false): ?>
                     <tr>
-                        <td><?php echo $r->courseCode . " "; ?></td>
-                        <?php $courseCode = $r->courseCode; ?>
-                        <td><?php echo $r->courseName . " "; ?></td>
-                        <td><?php echo $semester; ?></td>
-                        <td><?php
-                            if ($r->preferences != NULL) {
-                            echo $r->preferences . " ";
-                            } else {
-                            echo " - ";
-                            }
-                            ?></td>
-                        <td><?php echo $day; ?></td>
-                        <td><?php echo $time; ?> </td>
+                        <td><?php echo $c->CourseCode . " "; ?></td>
+                        <td><?php echo $c->CourseName . " "; ?></td>
+                        <td><a href="<?= site_url("ScheduleEditorController/addCourse2?&time=$time&day=$day&classroom=$classroom&semester=$semester&CourseCode=$c->CourseCode&CourseName=$c->CourseName") ?>">Add</a></td>
                     </tr>
-                    <?php endif; ?> 
-                <?php endforeach; ?>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table></h1>
-        
-            <?php echo form_open("ScheduleEditorController/step4?courseCode=$courseCode&semester=$semester&day=$day&reqID=$reqID&time=$time&type=request") ?>
-            <h1>Step 3</h1>
-            <h2>Select the classroom</h2>
-            
-            <select name="classroom">
-            <option value ="Computer Science Lab">Computer Science Lab 
-                <?php foreach($schedule as $s) {
-                    if($s->classroom == "Computer Science Lab" && $s->time == $time && $s->day==$day) {
-                        echo "Occupied"; 
-                    }
-                }?>
-                    </option>
-            <option value ="Computer Room">Computer Room
-                <?php foreach($schedule as $s) {
-                    if($s->classroom == "Computer Room" && $s->time == $time && $s->day==$day) {
-                        echo "Occupied"; 
-                    }
-                }?></option>
-            <option value ="Linux Lab">Linux Lab
-                <?php foreach($schedule as $s) {
-                    if($s->classroom == "Linux Lab" && $s->time == $time && $s->day==$day) {
-                        echo "Occupied"; 
-                    }
-                }?></option>
-            <option value ="New Building Computer Lab">New Building Computer Lab
-                <?php foreach($schedule as $s) {
-                    if($s->classroom == "New Building Computer Lab" && $s->time == $time && $s->day==$day) {
-                        echo "Occupied"; 
-                    }
-                }?></option>
 
-            </select>
-            
-        </select> </br></br>
-        <h2><input type="submit" value='Go' name='submit'/></h2>
-        <form/> </br>
-        
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/scripts.js"></script>
@@ -136,3 +99,4 @@
         </script>
     </body>
 </html>
+

@@ -55,7 +55,7 @@
         </div> <!-- cd-panel -->  
 
         <div class="padded-top"><h1>Add a course</br></h1></div>
-
+        <?php if($type == "request"): ?>
         <h1><table>
                 <caption>Adding Course</caption>
                 <tr>
@@ -67,7 +67,7 @@
                     <th>Time</th>
                     <th>Classroom</th>
                 </tr>
-
+                
                 <?php foreach ($requests as $r): ?>
                     <?php if ($reqID == $r->reqID): ?>
                         <tr>
@@ -91,9 +91,32 @@
 
                 </tbody>
             </table></h1>
-
+        
+        <?php elseif($type == "add"):?>
+            <h1><table>
+                <caption>Adding Course</caption>
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Semester</th> 
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Classroom</th>
+                </tr>
+                <tr>
+                    <td><?php echo $CourseCode; ?></td>
+                    <td><?php echo $CourseName; ?></td>
+                    <td><?php echo $semester; ?></td>
+                    <td><?php echo $day; ?></td>
+                    <td><?php echo $time; ?> </td>
+                    <td><?php echo $classroom; ?></td>
+                </tr>
+            <?php endif; ?>
+                </tbody>
+                </table></h1>
+        
         <?php echo form_open("ScheduleEditorController/step5?courseCode=$courseCode&semester=$semester&day=$day&time=$time&classroom=$classroom") ?>
-        <h1>Step 4</h1>
+        <?php if($type == "request"): ?><h1>Step 4</h1><?php endif; ?>
         <h2>Select the lecturer</h2>
 
         <select name="lecturerID">
@@ -115,11 +138,14 @@
                             }
                         }
                     } else {
-
+                        $busy = false;
                         foreach ($schedule as $s) {
                             if ($s->lecturerID == $c->lid && $s->time == $time && $s->day == $day) {
+                                $busy = true;
                                 //if the lecturer isn't occupied at the time
-                            } else {
+                        } }
+                            if($busy == false )
+                            {
                                 echo $c->lid;
                                 foreach ($lecturer as $l) {
                                     if ($c->lid == $l->id) {
@@ -128,11 +154,11 @@
                                     }
                                 }
                             }
-                        }
+                        
                     }
                     ?>"><?php echo $lecturerfn . " " . $lecturerln;
             if ($c->preferred == 1) {
-                echo "(Recommended)";
+                echo " (Recommended)";
             } ?></option>
                         <?php
                         endif;

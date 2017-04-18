@@ -43,7 +43,7 @@ class LoginModel extends CI_Model {
     }
 
     public function getName($id) {
-        
+
         if ($this->checkLevel($id) == 1) {
             //get name from lecturer table
             $query = $this->db->get('lecturers');
@@ -51,11 +51,10 @@ class LoginModel extends CI_Model {
 
             foreach ($login as $r) {
                 if ($r->id == $id) {
-                    $name = $r->firstName ." ". $r->lastName;
+                    $name = $r->firstName . " " . $r->lastName;
                     return $name;
                 }
             }
-            
         } else if ($this->checkLevel($id) == 2) {
             //get name from student table
             $query = $this->db->get('student');
@@ -63,11 +62,10 @@ class LoginModel extends CI_Model {
 
             foreach ($login as $r) {
                 if ($r->id == $id) {
-                    $name = $r->firstName ." ". $r->lastName;
+                    $name = $r->firstName . " " . $r->lastName;
                     return $name;
                 }
             }
-            
         } else if ($this->checkLevel($id) == 3) {
             //get name from contract lecturer table
             $query = $this->db->get('contractlecturers');
@@ -75,11 +73,10 @@ class LoginModel extends CI_Model {
 
             foreach ($login as $r) {
                 if ($r->id == $id) {
-                    $name = $r->firstName ." ". $r->lastName;
+                    $name = $r->firstName . " " . $r->lastName;
                     return $name;
                 }
             }
-            
         } else {
             //get name from admin table
             $query = $this->db->get('admin');
@@ -87,8 +84,36 @@ class LoginModel extends CI_Model {
 
             foreach ($login as $r) {
                 if ($r->id == $id) {
-                    $name = $r->firstName ." ". $r->lastName;
+                    $name = $r->firstName . " " . $r->lastName;
                     return $name;
+                }
+            }
+        }
+    }
+
+    public function getNoCredits($id, $level) {
+        if ($level == 1) {
+            //lecturer
+            $query = $this->db->get('contractlecturers');
+            $login = $query->result();
+
+            foreach ($login as $r) {
+                if ($r->id == $id) {
+                    $noCredits = $r->noCredits;
+                    return $noCredits;
+                }
+            }
+        }
+        //
+        if ($level == 3) {
+            //lecturer
+            $query = $this->db->get('lecturers');
+            $login = $query->result();
+
+            foreach ($login as $r) {
+                if ($r->id == $id) {
+                    $noCredits = $r->noCredits;
+                    return $noCredits;
                 }
             }
         }
