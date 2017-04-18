@@ -124,17 +124,15 @@
             <?php
             foreach ($coursesLectured as $c):
                 if ($c->courseCode == $courseCode) :
-                    
+
                     if ($c->cid != NULL) {
                         $busy = false;
                         foreach ($schedule as $s) {
                             if ($s->lecturerID == $c->cid && $s->time == $time && $s->day == $day) {
                                 $busy = true;
-                                //if the lecturer isn't occupied at the time
                             }
                         }
                         //if lecturer set the time as available
-                        //if they aren't occupied in that time
                         //if the sum of the course's credits and their current credits is less than their max creidts
                         if ($busy == false) {
                             echo $c->cid;
@@ -144,19 +142,20 @@
                                     $lecturerln = $cl->lastName;
                                 }
                             }
-                            ?><option value ="<?php echo $lecturerfn . " " . $lecturerln;
-                            if ($c->preferred == 1) {
-                                echo " (Recommended)";
-                            }
-                            ?>"></option>
-                            <?php 
+                            ?><option value ="<?php echo $cl->id;
+                            ?>"><?php
+                                    echo $lecturerfn . " " . $lecturerln;
+                                    if ($c->preferred == 1) {
+                                        echo " (Recommended)";
+                                    }
+                                    ?></option>
+                            <?php
                         }
                     } else {
-
+                        $busy = false;
                         foreach ($schedule as $s) {
                             if ($s->lecturerID == $c->lid && $s->time == $time && $s->day == $day) {
                                 $busy = true;
-                                //if the lecturer isn't occupied at the time
                             }
                         }
                         if ($busy == false) {
@@ -167,16 +166,17 @@
                                     $lecturerln = $l->lastName;
                                 }
                             }
-                            ?><option value ="<?php echo $lecturerfn . " " . $lecturerln;
-                            if ($c->preferred == 1) {
-                                echo " (Recommended)";
-                            }
-                            ?>"></option>
+                            ?><option value ="<?php echo $l->id;
+                            ?>"><?php
+                                    echo $lecturerfn . " " . $lecturerln;
+                                    if ($c->preferred == 1) {
+                                        echo " (Recommended)";
+                                    }
+                                    ?></option>
                             <?php
                         }
                     }
-                    ?>
-                <?php endif;
+                endif;
             endforeach;
             ?>
 

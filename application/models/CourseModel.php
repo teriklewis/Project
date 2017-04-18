@@ -60,5 +60,12 @@ class CourseModel extends CI_Model {
             $this->db->update('contractlecturers');
         }
     }
+    
+    public function removeCourse($courseCode, $semester) {
+        $this->db->where('CourseCode', $courseCode);
+        $this->db->delete("$semester");
+        echo '<script>alert("Course Deleted!");</script>';
+        redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
+    }
 
 }
