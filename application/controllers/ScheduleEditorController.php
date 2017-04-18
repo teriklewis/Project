@@ -319,7 +319,7 @@ class ScheduleEditorController extends CI_Controller {
     }
 
     public function editCourse1() {
-        $data['courseCode'] = $this->input->get('courseCode');
+        $data['CourseCode'] = $this->input->get('courseCode');
         $this->load->model('CourseModel');
         $data['CourseName'] = $this->CourseModel->getCourseName($data);
         $data['day'] = $this->input->get('day');
@@ -327,6 +327,27 @@ class ScheduleEditorController extends CI_Controller {
         $data['classroom'] = $this->input->get('classroom');
         $data['lecturerID'] = $this->input->get('lecturerID');
         $data['lecturerName'] = $this->input->get('lecturerName');
+    }
+    
+    public function deliteCourse1() {
+        $data['courseCode'] = $this->input->get('courseCode');
+        $data['lecturerID'] = $this->input->get('lecturerID');
+        $data['semester']   = $this->input->get('semester');
+        
+        $this->load->model('LoginModel');
+        $this->load->model('CourseModel');
+        $data['level'] = $this->LoginModel->checkLevel($data['lecturerID']);
+        $noCredits = $this->LoginModel->getNoCredits($data['lecturerID'], $data['level']);
+        $credits = $this->CourseModel->getCourseCredits($data['courseCode']);
+        $data['newNoCredits'] = $noCredits - $credits;
+        
+        $this->CourseModel->setNoCredits($data);
+        $this->CourseModel->removeCourse($data['courseCode'],$data['semester']);
+    }
+    
+    public function moveCourse1() { 
+        $session_data = $this->session->userdata('logged_in');
+        $data['id'] = $session_data;
     }
 
 }
