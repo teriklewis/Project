@@ -25,115 +25,244 @@ class StateAvailabilityController extends CI_Controller {
         }
     }
 
-    public function StateAvailability() { //put the new semester variable stuff. then finish step4 view to check availability 
+    public function StateAvailability() { 
         //also check the credits of contract lecturers
-        if ($this->input->post('mw1') == 1) {
-            echo $this->input->post('mw1');
-            $data['mw1'] = 1;
+        //
+        //first semester
+        if ($this->input->post('fsmw1') == 1) {
+            $data['fsmw1'] = 1;
         } else {
-            $data['mw1'] = 0;
+            $data['fsmw1'] = 0;
         }
-        if ($this->input->post('mw2') == 1) {
-            echo $this->input->post('mw2');
-            $data['mw2'] = 1;
+        if ($this->input->post('fsmw2') == 1) {
+            $data['fsmw2'] = 1;
         } else {
-            $data['mw2'] = 0;
+            $data['fsmw2'] = 0;
         }
-        if ($this->input->post('mw3') == 1) {
-            echo $this->input->post('mw3');
-            $data['mw3'] = 1;
+        if ($this->input->post('fsmw3') == 1) {
+            $data['fsmw3'] = 1;
         } else {
-            $data['mw3'] = 0;
+            $data['fsmw3'] = 0;
         }
-        if ($this->input->post('mw4') == 1) {
-            echo $this->input->post('mw4');
-            $data['mw4'] = 1;
+        if ($this->input->post('fsmw4') == 1) {
+            $data['fsmw4'] = 1;
         } else {
-            $data['mw4'] = 0;
+            $data['fsmw4'] = 0;
         }
-        if ($this->input->post('mw5') == 1) {
-            echo $this->input->post('mw5');
-            $data['mw5'] = 1;
+        if ($this->input->post('fsmw5') == 1) {
+            $data['fsmw5'] = 1;
         } else {
-            $data['mw5'] = 0;
+            $data['fsmw5'] = 0;
         }
-        if ($this->input->post('mw6') == 1) {
-            echo $this->input->post('mw6');
-            $data['mw6'] = 1;
+        if ($this->input->post('fsmw6') == 1) {
+            $data['fsmw6'] = 1;
         } else {
-            $data['mw6'] = 0;
+            $data['fsmw6'] = 0;
         }
-        if ($this->input->post('mw7') == 1) {
-            echo $this->input->post('mw7');
-            $data['mw7'] = 1;
+        if ($this->input->post('fsmw7') == 1) {
+            $data['fsmw7'] = 1;
         } else {
-            $data['mw7'] = 0;
+            $data['fsmw7'] = 0;
         }
-        if ($this->input->post('mw8') == 1) {
-            echo $this->input->post('mw8');
-            $data['mw8'] = 1;
+        if ($this->input->post('fsmw8') == 1) {
+            $data['fsmw8'] = 1;
         } else {
-            $data['mw8'] = 0;
+            $data['fsmw8'] = 0;
         }
-        if ($this->input->post('mw9') == 1) {
-            echo $this->input->post('mw9');
-            $data['mw9'] = 1;
+        if ($this->input->post('fsmw9') == 1) {
+            $data['fsmw9'] = 1;
         } else {
-            $data['mw9'] = 0;
+            $data['fsmw9'] = 0;
         }
-        if ($this->input->post('tt1') == 1) {
-            echo $this->input->post('tt1');
-            $data['tt1'] = 1;
+        if ($this->input->post('fstt1') == 1) {
+            $data['fstt1'] = 1;
         } else {
-            $data['tt1'] = 0;
+            $data['fstt1'] = 0;
         }
-        if ($this->input->post('tt21') == 1) {
-            echo $this->input->post('tt2');
-            $data['tt2'] = 1;
+        if ($this->input->post('fstt2') == 1) {
+            $data['fstt2'] = 1;
         } else {
-            $data['tt2'] = 0;
+            $data['fstt2'] = 0;
         }
-        if ($this->input->post('tt3') == 1) {
-            echo $this->input->post('tt3');
-            $data['tt3'] = 1;
+        if ($this->input->post('fstt3') == 1) {
+            $data['fstt3'] = 1;
         } else {
-            $data['tt3'] = 0;
+            $data['fstt3'] = 0;
         }
-        if ($this->input->post('tt4') == 1) {
-            echo $this->input->post('tt4');
-            $data['tt4'] = 1;
+        if ($this->input->post('fstt4') == 1) {
+            $data['fstt4'] = 1;
         } else {
-            $data['tt4'] = 0;
+            $data['fstt4'] = 0;
         }
-        if ($this->input->post('tt5') == 1) {
-            echo $this->input->post('tt5');
-            $data['tt5'] = 1;
+        if ($this->input->post('fstt5') == 1) {
+            $data['fstt5'] = 1;
         } else {
-            $data['tt5'] = 0;
+            $data['fstt5'] = 0;
         }
-        if ($this->input->post('tt6') == 1) {
-            echo $this->input->post('tt6');
-            $data['tt6'] = 1;
+        if ($this->input->post('fstt6') == 1) {
+            $data['fstt6'] = 1;
         } else {
-            $data['tt6'] = 0;
+            $data['fstt6'] = 0;
         }
-        if ($this->input->post('tt7') == 1) {
-            echo $this->input->post('tt7');
-            $data['tt7'] = 1;
+        if ($this->input->post('fstt7') == 1) {
+            $data['fstt7'] = 1;
         } else {
-            $data['tt7'] = 0;
+            $data['fstt7'] = 0;
         }
-        if ($this->input->post('tt8') == 1) {
-            echo $this->input->post('tt8');
-            $data['tt8'] = 1;
+        if ($this->input->post('fstt8') == 1) {
+            $data['fstt8'] = 1;
         } else {
-            $data['tt8'] = 0;
+            $data['fstt8'] = 0;
         }
-        if ($this->input->post('tt9') == 1) {
-            echo $this->input->post('tt9');
-            $data['tt9'] = 1;
+        if ($this->input->post('fstt9') == 1) {
+            $data['fstt9'] = 1;
         } else {
-            $data['tt9'] = 0;
+            $data['fstt9'] = 0;
+        }
+        
+        //second semester
+        if ($this->input->post('ssmw1') == 1) {
+            $data['ssmw1'] = 1;
+        } else {
+            $data['ssmw1'] = 0;
+        }
+        if ($this->input->post('ssmw2') == 1) {
+            $data['ssmw2'] = 1;
+        } else {
+            $data['ssmw2'] = 0;
+        }
+        if ($this->input->post('ssmw3') == 1) {
+            $data['ssmw3'] = 1;
+        } else {
+            $data['ssmw3'] = 0;
+        }
+        if ($this->input->post('ssmw4') == 1) {
+            $data['ssmw4'] = 1;
+        } else {
+            $data['ssmw4'] = 0;
+        }
+        if ($this->input->post('ssmw5') == 1) {
+            $data['ssmw5'] = 1;
+        } else {
+            $data['ssmw5'] = 0;
+        }
+        if ($this->input->post('ssmw6') == 1) {
+            $data['ssmw6'] = 1;
+        } else {
+            $data['ssmw6'] = 0;
+        }
+        if ($this->input->post('ssmw7') == 1) {
+            $data['ssmw7'] = 1;
+        } else {
+            $data['ssmw7'] = 0;
+        }
+        if ($this->input->post('ssmw8') == 1) {
+            $data['ssmw8'] = 1;
+        } else {
+            $data['ssmw8'] = 0;
+        }
+        if ($this->input->post('ssmw9') == 1) {
+            $data['ssmw9'] = 1;
+        } else {
+            $data['ssmw9'] = 0;
+        }
+        if ($this->input->post('sstt1') == 1) {
+            $data['sstt1'] = 1;
+        } else {
+            $data['sstt1'] = 0;
+        }
+        if ($this->input->post('sstt2') == 1) {
+            $data['sstt2'] = 1;
+        } else {
+            $data['sstt2'] = 0;
+        }
+        if ($this->input->post('sstt3') == 1) {
+            $data['sstt3'] = 1;
+        } else {
+            $data['sstt3'] = 0;
+        }
+        if ($this->input->post('sstt4') == 1) {
+            $data['sstt4'] = 1;
+        } else {
+            $data['sstt4'] = 0;
+        }
+        if ($this->input->post('sstt5') == 1) {
+            $data['sstt5'] = 1;
+        } else {
+            $data['sstt5'] = 0;
+        }
+        if ($this->input->post('sstt6') == 1) {
+            $data['sstt6'] = 1;
+        } else {
+            $data['sstt6'] = 0;
+        }
+        if ($this->input->post('sstt7') == 1) {
+            $data['sstt7'] = 1;
+        } else {
+            $data['sstt7'] = 0;
+        }
+        if ($this->input->post('sstt8') == 1) {
+            $data['sstt8'] = 1;
+        } else {
+            $data['sstt8'] = 0;
+        }
+        if ($this->input->post('sstt9') == 1) {
+            $data['sstt9'] = 1;
+        } else {
+            $data['sstt9'] = 0;
+        }
+        
+        //third semester
+        if ($this->input->post('tsmw1') == 1) {
+            $data['tsmw1'] = 1;
+        } else {
+            $data['tsmw1'] = 0;
+        }
+        if ($this->input->post('tsmw2') == 1) {
+            $data['tsmw2'] = 1;
+        } else {
+            $data['tsmw2'] = 0;
+        }
+        if ($this->input->post('tsmw3') == 1) {
+            $data['tsmw3'] = 1;
+        } else {
+            $data['tsmw3'] = 0;
+        }
+        if ($this->input->post('tsmw4') == 1) {
+            $data['tsmw4'] = 1;
+        } else {
+            $data['tsmw4'] = 0;
+        }
+        if ($this->input->post('tsmw5') == 1) {
+            $data['tsmw5'] = 1;
+        } else {
+            $data['tsmw5'] = 0;
+        }
+        
+        if ($this->input->post('tstt1') == 1) {
+            $data['tstt1'] = 1;
+        } else {
+            $data['tstt1'] = 0;
+        }
+        if ($this->input->post('tstt2') == 1) {
+            $data['tstt2'] = 1;
+        } else {
+            $data['tstt2'] = 0;
+        }
+        if ($this->input->post('tstt3') == 1) {
+            $data['tstt3'] = 1;
+        } else {
+            $data['tstt3'] = 0;
+        }
+        if ($this->input->post('tstt4') == 1) {
+            $data['tstt4'] = 1;
+        } else {
+            $data['tstt4'] = 0;
+        }
+        if ($this->input->post('tstt5') == 1) {
+            $data['tstt5'] = 1;
+        } else {
+            $data['tstt5'] = 0;
         }
 
         //send data to database

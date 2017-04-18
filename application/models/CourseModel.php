@@ -67,5 +67,15 @@ class CourseModel extends CI_Model {
         echo '<script>alert("Course Deleted!");</script>';
         redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
     }
+    
+    public function addLecturer($data, $semester) {  
+        $this->db->where('CourseCode', $data['CourseCode']);   
+        
+        $this->db->set('lecturerID', $data['lecturerID']);
+        $this->db->set('lecturerName', $data['lecturerName']);
+        $this->db->update("$semester");
+        echo '<script>alert("Lecturer Updated");</script>';
+        redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
+    }
 
 }

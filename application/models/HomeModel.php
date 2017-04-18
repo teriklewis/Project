@@ -58,6 +58,17 @@ class HomeModel extends CI_Model {
         return $query->result();
     }
     
+    public function getState() { 
+        $query = $this->db->get('state');
+        return $query->result();
+    }
     
+    public function updateState($data) { 
+        $this->db->set($data);
+        $this->db->update('state');
+        
+        echo '<script>alert("Schedule State updated!");</script>';
+        redirect(site_url('ScheduleEditorController'), 'refresh');
+    }
 
 }

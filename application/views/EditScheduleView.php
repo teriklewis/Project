@@ -70,7 +70,7 @@
                 </tr>
 
                 <?php foreach ($requests as $r): ?>
-                    <tr <?php if ($r->priority == 1): ?> bgcolor="#F98"<?php endif; ?> >
+                    <tr <?php if ($r->priority == 1 && $r->status =="Pending Approval"): ?> bgcolor="#F98"<?php endif; ?> >
                         <td><?php echo $r->courseCode . " "; ?></td>
                         <td><?php echo $r->courseName . " "; ?></td>
                         <td><?php

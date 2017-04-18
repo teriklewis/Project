@@ -54,47 +54,9 @@
             </div> <!-- cd-panel-container -->
         </div> <!-- cd-panel -->  
 
-        <div class="padded-top"><h1>Add a course</br></h1></div>
-        <?php if ($type == "request"): ?>
+        <div class="padded-top"><h1>Choose a Lecturer</br></h1></div>
             <h1><table>
-                    <caption>Adding Course</caption>
-                    <tr>
-                        <th>Course Code</th>
-                        <th>Course Name</th>
-                        <th>Semester</th>
-                        <th>Preferences</th>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Classroom</th>
-                    </tr>
-
-                    <?php foreach ($requests as $r): ?>
-                        <?php if ($reqID == $r->reqID): ?>
-                            <tr>
-                                <td><?php echo $r->courseCode . " "; ?></td>
-                                <?php $courseCode = $r->courseCode; ?>
-                                <td><?php echo $r->courseName . " "; ?></td>
-                                <td><?php echo $semester; ?></td>
-                                <td><?php
-                                    if ($r->preferences != NULL) {
-                                        echo $r->preferences . " ";
-                                    } else {
-                                        echo " - ";
-                                    }
-                                    ?></td>
-                                <td><?php echo $day; ?></td>
-                                <td><?php echo $time; ?> </td>
-                                <td><?php echo $classroom ?></td>
-                            </tr>
-                        <?php endif; ?> 
-                    <?php endforeach; ?>
-
-                    </tbody>
-                </table></h1>
-
-        <?php elseif ($type == "add"): ?>
-            <h1><table>
-                    <caption>Adding Course</caption>
+                    <caption>For Course</caption>
                     <tr>
                         <th>Course Code</th>
                         <th>Course Name</th>
@@ -111,19 +73,17 @@
                         <td><?php echo $time; ?> </td>
                         <td><?php echo $classroom; ?></td>
                     </tr>
-                <?php endif; ?>
                 </tbody>
             </table></h1>
 
-        <?php echo form_open("ScheduleEditorController/step5?courseCode=$courseCode&semester=$semester&day=$day&time=$time&classroom=$classroom") ?>
-        <?php if ($type == "request"): ?><h1>Step 4</h1><?php endif; ?>
+        <?php echo form_open("ScheduleEditorController/addLecturer2?CourseCode=$CourseCode&semester=$semester&day=$day&time=$time&classroom=$classroom") ?>
         <h2>Select the lecturer</h2>
 
         <select name="lecturerID">
             <option value ="TBA">To be announced</option>
             <?php
             foreach ($coursesLectured as $c):
-                if ($c->courseCode == $courseCode) :
+                if ($c->courseCode == $CourseCode) :
 
                     if ($c->cid != NULL) {
                         $busy = false;
@@ -524,8 +484,9 @@
         </select>
 
     </select> </br></br>
-    <h2><input type="submit" value='Add Course' name='submit'/></h2>
+    <h2><input type="submit" value='Add Lecturer' name='submit'/></h2>
     <form/> </br>
+    <h2><?php echo $busy; ?> </h2>
 
     <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
     <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>

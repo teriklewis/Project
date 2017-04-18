@@ -12,7 +12,10 @@ class HomeController extends CI_Controller {
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
             
             //sending $data to the HomeView and displaying the view
+            $this->load->model('HomeModel');
+            $data['state'] = $this->HomeModel->getState();
             $data['semester'] = "unselected";
+            
             $this->load->view('HomeView', $data);
         } else {
             redirect('LoginController');
@@ -28,7 +31,8 @@ class HomeController extends CI_Controller {
                 
             $data['name'] = $this->LoginModel->getName($data['id']);       
             $data['level'] = $this->LoginModel->checkLevel($data['id']);
-                        
+            $data['state'] = $this->HomeModel->getState();
+            
             //sending $data to the HomeView and displaying the view
             $data['semester'] = $this->input->post('semester');
             if($data['semester'] == "firstsem") {
