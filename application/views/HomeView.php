@@ -49,6 +49,7 @@
                             <h2><?php echo "Scheduler Tools"; ?></h2>
                             <li><a href="<?= site_url('ScheduleEditorController/EditSchedule') ?>">Edit Schedule</a></li>
                             <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                            <li><a href="<?= site_url('ScheduleEditorController/ViewLecturers') ?>">View Lecturers</a></li>
                         <?php endif; ?>
 
                     </ul>
@@ -1278,7 +1279,7 @@
         <?php else: ?>
             <h2>Please wait until the schedule is published to view...</br>
                 This may take until you grow up, get married and your grandchildren have grandchildren,</br> but please, </br>wait.</br> 
-                It will be ready soon. </h2>jk go suck yo motha
+                It will be ready soon. </h2>
         <?php endif; ?>
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>

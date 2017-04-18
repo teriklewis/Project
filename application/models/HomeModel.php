@@ -70,5 +70,17 @@ class HomeModel extends CI_Model {
         echo '<script>alert("Schedule State updated!");</script>';
         redirect(site_url('ScheduleEditorController'), 'refresh');
     }
+    
+    public function minCreditsMet() {
+        $query = $this->db->get('lecturers'); 
+        $lecturer = $query->result();
+        
+        foreach($lecturer as $l) {
+            if($l->noCredits < $l->minCredits) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

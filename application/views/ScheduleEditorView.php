@@ -47,6 +47,7 @@
                             <h2><?php echo "Scheduler Tools"; ?></h2>
                             <li><a href="<?= site_url('ScheduleEditorController/EditSchedule') ?>">Edit Schedule</a></li>
                             <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                            <li><a href="<?= site_url('ScheduleEditorController/ViewLecturers') ?>">View Lecturers</a></li>
                         <?php endif; ?>
                     </ul>
                 </div> <!-- cd-panel-content -->

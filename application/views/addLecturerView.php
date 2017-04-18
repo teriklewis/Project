@@ -48,6 +48,7 @@
                         <?php if ($level == 4): ?></br></br>
                             <h2><?php echo "Scheduler Tools"; ?></h2>
                             <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
+                            <li><a href="<?= site_url('ScheduleEditorController/ViewLecturers') ?>">View Lecturers</a></li>
                         <?php endif; ?>
                     </ul>
                 </div> <!-- cd-panel-content -->

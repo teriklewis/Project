@@ -38,82 +38,44 @@
                     <ul>
                         <h1><?php echo "Welcome "; ?></br> </h1>
                         <h2><?php echo $name; ?></h2>
-                        <h2><?php echo "ID: " . $id; ?></h2></br> 
+                        <h2><?php echo "ID: " . $id; ?></h2></br>
 
-                        <li><a href="<?= site_url('HomeController') ?>">Home</a></li>
                         <li><a href="<?= site_url('EditProfileController') ?>">Edit Profile</a></li>
-                        <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Request a Course</a></li><?php endif; ?>
+                        <?php if ($level == 2): ?><li><a href="<?= site_url('RequestCourseController') ?>">Requests</a></li><?php endif; ?>
+                        <?php if ($level == 3): ?><li><a href="<?= site_url('StateAvailabilityController') ?>">State Availability</a></li><?php endif; ?>
                         <?php if ($level > 3): ?><li><a href="<?= site_url('ScheduleEditorController') ?>">Schedule Admin Panel</a></li><?php endif; ?>
                         <li><a href="<?= site_url('LoginController/Logout') ?>">Logout</a></li>
                         <?php if ($level == 4): ?></br></br>
                             <h2><?php echo "Scheduler Tools"; ?></h2>
+                            <li><a href="<?= site_url('ScheduleEditorController/EditSchedule') ?>">Edit Schedule</a></li>
                             <li><a href="<?= site_url('ScheduleEditorController/EditCourses') ?>">View Courses</a></li>
-                            <li><a href="<?= site_url('ScheduleEditorController/ViewLecturers') ?>">View Lecturers</a></li>
                         <?php endif; ?>
-                    </ul>
-                </div> <!-- cd-panel-content -->
-            </div> <!-- cd-panel-container -->
-        </div> <!-- cd-panel -->  
-
-        <div class="padded-top"><h1>Add a course</br></h1></div>
+                </div>
+            </div>
+        </div>
+        <div class="padded-top"><h1>Lecturers</h1></div>     
+        
         <h1><table>
-                <caption>Adding Course</caption>
                 <tr>
-                    <th>Course Code</th>
-                    <th>Course Name</th>
-                    <th>Preferred Semester</th>
-                    <th>Preferences</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Min Credits</th>
+                    <th>No. Credits</th>
                 </tr>
 
-                    <?php foreach ($requests as $r): ?>
-                        <?php if ($reqID == $r->reqID): ?>
+                <?php foreach ($lecturer as $l): ?>
                     <tr>
-                        <td><?php echo $r->courseCode . " "; ?></td>
-                        <?php $courseCode = $r->courseCode; ?>
-                        <td><?php echo $r->courseName . " "; ?></td>
-                        <td><?php
-                            if ($r->semester != NULL) {
-                            echo $r->semester . " ";
-                            $semester = $r->semester;
-                            } else {
-                            echo " - ";
-                            }
-                            ?></td>
-                        <td><?php
-                            if ($r->preferences != NULL) {
-                            echo $r->preferences . " ";
-                            } else {
-                            echo " - ";
-                            }
-                            ?></td>
-
+                        <td><?php echo $l->id . " "; ?></td>
+                        <td><?php echo $l->firstName . " " . $l->lastName; ?></td>
+                        <td><?php echo $l->minCredits . " "; ?></td>
+                        <td><?php echo $l->noCredits . " "; ?></td>
                     </tr>
-                    <?php endif; ?> 
                 <?php endforeach; ?>
 
                 </tbody>
             </table></h1>
-            
-            <?php echo form_open("ScheduleEditorController/step2?courseCode=$courseCode&reqID=$reqID") ?>
-            <h1>Step 1</h1>
-            <h2>Select the semester</h2>
-            
-            <select name="semester">
-            <option value ="firstsem">1st Semester<?php if($semester == "firstsem"): ?> (Recommended)<?php endif; ?></option>
-            <option value ="secondsem">2nd Semester<?php if($semester == "secondsem"): ?> (Recommended)<?php endif; ?></option>
-            <option value ="thirdsem">3rd Semester<?php if($semester == "thirdsem"): ?> (Recommended)<?php endif; ?></option>
-            </select>
-            
-            </br></br>
-            <h2>Select the day</h2>
-            <select name="day">
-            <option value ="mw">Monday/Wednesday</option>
-            <option value ="tt">Tuesday/Thursday</option>
-            
-        </select> </br></br>
         
-        <h2><input type="submit" value='Next' name='submit'/></h2>
-        <form/> </br>
+        
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
@@ -123,4 +85,6 @@
             $(document).foundation();
         </script>
     </body>
+    
 </html>
+
