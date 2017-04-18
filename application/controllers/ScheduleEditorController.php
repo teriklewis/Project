@@ -88,7 +88,6 @@ class ScheduleEditorController extends CI_Controller {
         $data['name'] = $this->LoginModel->getName($data['id']);
         $data['level'] = $this->LoginModel->checkLevel($data['id']);
 
-        //sending $data to the HomeView and displaying the view
         $data['semester'] = $this->input->post('semester');
         if ($data['semester'] != "unselected") {
             //get schedule for the select semester
@@ -349,14 +348,6 @@ class ScheduleEditorController extends CI_Controller {
         $this->CourseModel->removeCourse($data['courseCode'], $data['semester']);
     }
 
-    public function moveCourse1() {
-        $session_data = $this->session->userdata('logged_in');
-        $data['id'] = $session_data;
-//        $s->CourseCode&CourseName=$s->CourseName&time=10:40&
-//        day=mw&classroom=$cr&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName
-//        &semester=$semester")
-    }
-
     public function addLecturer() {
         
         $session_data = $this->session->userdata('logged_in');
@@ -418,7 +409,15 @@ class ScheduleEditorController extends CI_Controller {
    
         $data['level'] = $this->LoginModel->checkLevel($id);
         if($this->input->post('submit') == "Submit Schedule") {
-            $data['state'] = "Submitted";
+            if($this->HomeModel->minCreditsMet()) {
+                $data['state'] = "Submitted";
+            } else { 
+                echo '<script>alert("Minimum credit requirements not met. Please try again after assigning enough courses to lecturers.");</script>';
+                redirect(site_url('ScheduleEditorController'), 'refresh');
+            }
+            //if the function returns true, submit
+            //else, popup alert - minimum credit requirements for lecturers not met. please assign more courses then try to submit again
+
         } elseif($this->input->post('submit') == "Deny Schedule") {
             $data['state'] = "Denied";
         } elseif($this->input->post('submit') == "Approve Schedule") {
@@ -429,6 +428,20 @@ class ScheduleEditorController extends CI_Controller {
         $data['comment'] = $this->input->post('comment');
         
         $this->HomeModel->updateState($data);
+    }
+    
+    public function ViewLecturers() { 
+        
+        $session_data = $this->session->userdata('logged_in');
+        $data['id'] = $session_data;
+        $this->load->model('LoginModel');
+        $data['level'] = $this->LoginModel->checkLevel($data['id']);
+        $data['name'] = $this->LoginModel->getName($data['id']);
+        
+        $this->load->model('HomeModel');
+        $data['lecturer'] = $this->HomeModel->getLecturers();
+        
+        $this->load->view('ViewLecturersView', $data);
     }
 
 }
