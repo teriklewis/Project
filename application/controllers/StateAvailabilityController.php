@@ -25,7 +25,8 @@ class StateAvailabilityController extends CI_Controller {
         }
     }
 
-    public function StateAvailability() {
+    public function StateAvailability() { //put the new semester variable stuff. then finish step4 view to check availability 
+        //also check the credits of contract lecturers
         if ($this->input->post('mw1') == 1) {
             echo $this->input->post('mw1');
             $data['mw1'] = 1;

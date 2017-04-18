@@ -94,7 +94,7 @@ class LoginModel extends CI_Model {
     public function getNoCredits($id, $level) {
         if ($level == 1) {
             //lecturer
-            $query = $this->db->get('contractlecturers');
+                $query = $this->db->get('lecturers');
             $login = $query->result();
 
             foreach ($login as $r) {
@@ -107,7 +107,7 @@ class LoginModel extends CI_Model {
         //
         if ($level == 3) {
             //lecturer
-            $query = $this->db->get('lecturers');
+            $query = $this->db->get('contractlecturers');
             $login = $query->result();
 
             foreach ($login as $r) {

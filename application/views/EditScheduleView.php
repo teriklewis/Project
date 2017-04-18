@@ -60,7 +60,7 @@
                 <tr>
                     <th>Course Code</th>
                     <th>Course Name</th>
-                    <th>Semester</th>
+                    <th>Preferred Semester</th>
                     <th>Preferences</th>
                     <th>Student ID</th>
                     <th>Priority</th>

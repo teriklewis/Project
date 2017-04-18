@@ -329,7 +329,7 @@ class ScheduleEditorController extends CI_Controller {
         $data['lecturerName'] = $this->input->get('lecturerName');
     }
     
-    public function deliteCourse1() {
+    public function deleteCourse() {
         $data['courseCode'] = $this->input->get('courseCode');
         $data['lecturerID'] = $this->input->get('lecturerID');
         $data['semester']   = $this->input->get('semester');

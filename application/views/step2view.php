@@ -92,11 +92,6 @@
             <h2>Select the time</h2>
             <select name="time">
             <?php if($semester != "thirdsem"): ?>
-            <option value ="8:00">8:00</option>
-            <option value ="9:25">9:25</option>
-            <option value ="10:50">10:50</option>
-            <option value ="12:15">12:15</option>
-            <option value ="1:40">1:40</option>
             <?php if($day == "tt"): ?><option value ="3:05">3:05</option><?php endif; ?>
             <option value ="4:30">4:30</option>
             <option value ="5:55">5:55</option>

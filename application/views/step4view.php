@@ -131,24 +131,95 @@
                             if ($s->lecturerID == $c->cid && $s->time == $time && $s->day == $day) {
                                 $busy = true;
                             }
+                            switch ($s->time) {
+                                //period 1
+                                case "8:00":
+                                    foreach ($availability as $a) {
+                                        if ($a->id == $c->cid) {
+                                            if {    
+                                                if ($s->day == "mw") {
+                                                    if ($a->mw1 == 0) {
+                                                        $busy = true;
+                                                    }
+                                                } else {
+                                                    if ($a->tt1 == 0) {
+                                                        $busy = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;
+                                //period 2 
+                                case "9:25":
+
+                                    break;
+
+                                case "10:40":
+
+                                    break;
+
+                                //period 3
+                                case "10:50":
+
+                                    break;
+
+                                case "1:20":
+                                    break;
+
+                                //period 4 
+                                case "12:15":
+
+                                    break;
+
+                                case "4:00":
+                                    break;
+
+                                //period 5 
+                                case "1:40":
+
+                                    break;
+
+                                case "6:40":
+                                    break;
+
+                                //period 6
+                                case "3:05":
+
+                                    break;
+
+                                //period 7
+                                case "4:30":
+
+                                    break;
+
+                                //period 8
+                                case "5:55":
+
+                                    break;
+
+                                //period 9s
+                                case "7:20":
+
+                                    break;
+                            }
                         }
                         //if lecturer set the time as available
                         //if the sum of the course's credits and their current credits is less than their max creidts
                         if ($busy == false) {
-                            echo $c->cid;
                             foreach ($contractLecturer as $cl) {
                                 if ($c->cid == $cl->id) {
                                     $lecturerfn = $cl->firstName;
                                     $lecturerln = $cl->lastName;
                                 }
                             }
-                            ?><option value ="<?php echo $cl->id;
+                            ?><option value ="<?php echo $c->cid;
                             ?>"><?php
-                                    echo $lecturerfn . " " . $lecturerln;
-                                    if ($c->preferred == 1) {
-                                        echo " (Recommended)";
-                                    }
-                                    ?></option>
+                                        echo $lecturerfn . " " . $lecturerln;
+                                        if ($c->preferred == 1) {
+                                            echo " (Recommended)";
+                                        }
+                                        ?></option>
                             <?php
                         }
                     } else {
@@ -159,20 +230,19 @@
                             }
                         }
                         if ($busy == false) {
-                            echo $c->lid;
                             foreach ($lecturer as $l) {
                                 if ($c->lid == $l->id) {
                                     $lecturerfn = $l->firstName;
                                     $lecturerln = $l->lastName;
                                 }
                             }
-                            ?><option value ="<?php echo $l->id;
+                            ?><option value ="<?php echo $c->lid;
                             ?>"><?php
-                                    echo $lecturerfn . " " . $lecturerln;
-                                    if ($c->preferred == 1) {
-                                        echo " (Recommended)";
-                                    }
-                                    ?></option>
+                                        echo $lecturerfn . " " . $lecturerln;
+                                        if ($c->preferred == 1) {
+                                            echo " (Recommended)";
+                                        }
+                                        ?></option>
                             <?php
                         }
                     }

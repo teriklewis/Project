@@ -57,8 +57,8 @@
         <br>
         
         <form action="StateAvailabilityController/StateAvailability" method="post">
-            
-        <table style="width:25%">
+        <h2>First Semester</h2>
+        <h1><table style="width:25%">
   <tr>
     <th>Time</th>
     <th>Monday | Wednesday</th> 
@@ -66,52 +66,143 @@
   </tr>
   <tr>
     <td>8:00</td>
-    <td><center><input type="checkbox" name="mw1" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt1" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fsmw1" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt1" value="1"> <br> <center/> </td>
   </tr>
   <tr>
     <td>9:25</td>
-    <td><center><input type="checkbox" name="mw2" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt2" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fsmw2" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt2" value="1"> <br> <center/> </td>
   </tr>
   <tr>
      <td>10:50</td>
-     <td><center><input type="checkbox" name="mw3" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt3" value="1"> <br> <center/> </td>
+     <td><center><input type="checkbox" name="fsmw3" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt3" value="1"> <br> <center/> </td>
   </tr>
   <tr>
   	<td>12:15</td>
-     <td><center><input type="checkbox" name="mw4" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt4" value="1"> <br> <center/> </td>
+     <td><center><input type="checkbox" name="fsmw4" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt4" value="1"> <br> <center/> </td>
   </tr>
   <tr>
      <td>1:40</td>
-     <td><center><input type="checkbox" name="mw5" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt5" value="1"> <br> <center/> </td>
+     <td><center><input type="checkbox" name="fsmw5" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt5" value="1"> <br> <center/> </td>
   </tr>
   <tr>
      <td>3:05</td>
-     <td><center><input type="checkbox" name="mw6" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt6" value="1"> <br> <center/> </td>
+     <td><center><input type="checkbox" name="fsmw6" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt6" value="1"> <br> <center/> </td>
   </tr>
   <tr>
   <td>4:30</td>
-     <td><center><input type="checkbox" name="mw7" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt7" value="1"> <br> <center/> </td>
+     <td><center><input type="checkbox" name="fsmw7" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt7" value="1"> <br> <center/> </td>
   </tr>
   <tr>
      <td>5:55</td>
-     <td><center><input type="checkbox" name="mw8" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt8" value="1"> <br> <center/> </td>
+     <td><center><input type="checkbox" name="fsmw8" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt8" value="1"> <br> <center/> </td>
   <tr>
      <td>7:20</td>
-   <td><center><input type="checkbox" name="mw9" value="1"> <br> <center/> </td>
-    <td><center><input type="checkbox" name="tt9" value="1"> <br> <center/> </td>
+   <td><center><input type="checkbox" name="fsmw9" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="fstt9" value="1"> <br> <center/> </td>
   </tr>
   
   
-</table>
-            <input type="submit" value="Submit">
+  </table></h1></br>
+           
+        <h2>Second Semester</h2>      
+  <h1><table style="width:25%">
+  <tr>
+    <th>Time</th>
+    <th>Monday | Wednesday</th> 
+    <th>Tuesday | Thursday</th>
+  </tr>
+  <tr>
+    <td>8:00</td>
+    <td><center><input type="checkbox" name="ssmw1" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt1" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+    <td>9:25</td>
+    <td><center><input type="checkbox" name="ssmw2" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt2" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+     <td>10:50</td>
+     <td><center><input type="checkbox" name="ssmw3" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt3" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+  	<td>12:15</td>
+     <td><center><input type="checkbox" name="ssmw4" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt4" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+     <td>1:40</td>
+     <td><center><input type="checkbox" name="ssmw5" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt5" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+     <td>3:05</td>
+     <td><center><input type="checkbox" name="ssmw6" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt6" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+  <td>4:30</td>
+     <td><center><input type="checkbox" name="ssmw7" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt7" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+     <td>5:55</td>
+     <td><center><input type="checkbox" name="ssmw8" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt8" value="1"> <br> <center/> </td>
+  <tr>
+     <td>7:20</td>
+   <td><center><input type="checkbox" name="ssmw9" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="sstt9" value="1"> <br> <center/> </td>
+  </tr>
+  
+  
+  </table></h1> </br>
+  <h2>Third Semester</h2>
+         <h1><table style="width:25%">
+  <tr>
+    <th>Time</th>
+    <th>Monday | Wednesday</th> 
+    <th>Tuesday | Thursday</th>
+  </tr>
+  <tr>
+    <td>8:00</td>
+    <td><center><input type="checkbox" name="tsmw1" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="tstt1" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+    <td>10:40</td>
+    <td><center><input type="checkbox" name="tsmw2" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="tstt2" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+     <td>1:20</td>
+     <td><center><input type="checkbox" name="tsmw3" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="tstt3" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+  	<td>4:00</td>
+     <td><center><input type="checkbox" name="tsmw4" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="tstt4" value="1"> <br> <center/> </td>
+  </tr>
+  <tr>
+     <td>6:40</td>
+     <td><center><input type="checkbox" name="tsmw5" value="1"> <br> <center/> </td>
+    <td><center><input type="checkbox" name="tstt5" value="1"> <br> <center/> </td>
+  </tr> 
+
+  </table> </h1>
+            
+            
+  <h2><input type="submit" value="Submit"></h2>
         </form>
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
