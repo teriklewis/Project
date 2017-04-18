@@ -188,9 +188,15 @@
                                     echo $s->CourseName;
                                     ?></br>
                                     <?php echo $s->lecturerName; ?> </br>
+<<<<<<< HEAD
                                     <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&CourseName=$s->CourseName&day=tt&classroom=$csl&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
                                     <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&CourseName=$s->CourseName&time=3:05&day=tt&classroom=$csl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
                                     <a href="<?= site_url("ScheduleEditorController/deleteCourse?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+=======
+                                    <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$csl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
+                                    <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$csl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
+                                    <a href="<?= site_url("ScheduleEditorController/deliteCourse1?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+>>>>>>> origin/master
                                 <?php endif; ?> 
                             <?php endforeach; ?>
 
@@ -207,9 +213,15 @@
                                     echo $s->CourseName;
                                     ?></br>
                                     <?php echo $s->lecturerName; ?></br>
+<<<<<<< HEAD
                                     <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$cr&CourseName=$s->CourseName&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
                                     <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&CourseName=$s->CourseName&time=3:05&day=tt&classroom=$cr&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
                                     <a href="<?= site_url("ScheduleEditorController/deleteCourse?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+=======
+                                    <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$cr&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
+                                    <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$cr&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
+                                    <a href="<?= site_url("ScheduleEditorController/deliteCourse1?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+>>>>>>> origin/master
                                 <?php endif; ?>
                             <?php endforeach; ?>
 
@@ -226,9 +238,15 @@
                                     echo $s->CourseName;
                                     ?></br>
                                     <?php echo $s->lecturerName; ?></br>
+<<<<<<< HEAD
                                     <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$ll&CourseName=$s->CourseName&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
                                     <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&CourseName=$s->CourseName&time=3:05&day=tt&classroom=$ll&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
                                     <a href="<?= site_url("ScheduleEditorController/deleteCourse?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+=======
+                                    <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&CourseName=$s->CourseName&day=tt&classroom=$ll&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
+                                    <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&CourseName=$s->CourseName&time=3:05&day=tt&classroom=$ll&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
+                                    <a href="<?= site_url("ScheduleEditorController/deleteCourse1?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+>>>>>>> origin/master
                                 <?php endif; ?>
                             <?php endforeach; ?>
 
@@ -245,9 +263,15 @@
                                     echo $s->CourseName;
                                     ?></br>
                                     <?php echo $s->lecturerName; ?></br>
+<<<<<<< HEAD
                                     <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$nbcl&CourseName=$s->CourseName&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
                                     <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&CourseName=$s->CourseName&time=3:05&day=tt&classroom=$nbcl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
                                     <a href="<?= site_url("ScheduleEditorController/deleteCourse?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+=======
+                                    <?php if($s->lecturerID == 0): ?><a href="<?= site_url("ScheduleEditorController/addLecturer?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$nbcl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Add Lecturer </a>-<?php endif;?>
+                                    <a href="<?= site_url("ScheduleEditorController/moveCourse1?courseCode=$s->CourseCode&time=3:05&day=tt&classroom=$nbcl&lecturerID=$s->lecturerID&lecturerName=$s->lecturerName&semester=$semester") ?>">Move </a>-
+                                    <a href="<?= site_url("ScheduleEditorController/deleteCourse1?courseCode=$s->CourseCode&lecturerID=$s->lecturerID&semester=$semester") ?>">Delete</a></br>
+>>>>>>> origin/master
                                 <?php endif; ?>
                             <?php endforeach; ?>
 
