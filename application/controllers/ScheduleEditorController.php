@@ -329,6 +329,7 @@ class ScheduleEditorController extends CI_Controller {
             $data['newNoCredits'] = $credits + $noCredits;
             $this->CourseModel->setNoCredits($data);
         }
+        $data['type'] = "add";
         $this->CourseModel->addCourse($data, $semester);
     }
 
@@ -443,5 +444,46 @@ class ScheduleEditorController extends CI_Controller {
         
         $this->load->view('ViewLecturersView', $data);
     }
-
+    
+    public function moveCourse1() {
+        $session_data = $this->session->userdata('logged_in');
+        $data['id'] = $session_data;
+        $this->load->model('LoginModel');
+        $data['level'] = $this->LoginModel->checkLevel($data['id']);
+        $data['name'] = $this->LoginModel->getName($data['id']);
+        $data['logininfo'] = $this->LoginModel->getLoginInfo();
+        
+        $data['CourseCode'] = $this->input->get('CourseCode');
+        $data['CourseName'] = $this->input->get('CourseName');
+        $data['day'] = $this->input->get('day');
+        $data['time'] = $this->input->get('time');
+        $data['classroom'] = $this->input->get('classroom');
+        $data['lecturerID'] = $this->input->get('lecturerID');
+        $data['lecturerName'] = $this->input->get('lecturerName');
+        $data['semester'] = $this->input->get('semester');
+        
+        $this->load->model('CourseModel');
+        $this->CourseModel->removeCourse2($data['CourseCode'], $data['semester']);
+        
+        $this->load->model('HomeModel');
+        $data['availability'] = $this->HomeModel->getAvailability();
+        $data['scheduledCourse'] = $this->HomeModel->getSchedule($data['semester']);
+        
+        $this->load->view('MoveCourseView', $data);
+    }
+    
+    public function moveCourse() {
+        $data['courseCode'] = $this->input->get('CourseCode');
+        $data['CourseName'] = $this->input->get('CourseName');
+        $data['day'] = $this->input->get('day');
+        $data['time'] = $this->input->get('time');
+        $data['classroom'] = $this->input->get('classroom');
+        $data['lecturerID'] = $this->input->get('lecturerID');
+        $data['lecturerName'] = $this->input->get('lecturerName');
+        $semester = $this->input->get('semester');
+        $data['type'] = "move";
+        
+        $this->load->model('CourseModel');
+        $this->CourseModel->addCourse($data, $semester);
+    }
 }

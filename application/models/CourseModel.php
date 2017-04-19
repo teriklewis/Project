@@ -43,7 +43,12 @@ class CourseModel extends CI_Model {
             "lecturerName" => $data['lecturerName']
         );
         $this->db->insert("$semester", $newData);
-        echo '<script>alert("Course addded to schedule.");</script>';
+        
+        if($data['type'] == "move") {
+            echo '<script>alert("Course moved to new schedule slot.");</script>';
+        } else {
+            echo '<script>alert("Course addded to schedule.");</script>';
+        }
         redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
     }
 
@@ -66,6 +71,12 @@ class CourseModel extends CI_Model {
         $this->db->delete("$semester");
         echo '<script>alert("Course Deleted!");</script>';
         redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
+    }
+    
+    public function removeCourse2($courseCode, $semester) {
+        $this->db->where('CourseCode', $courseCode);
+        $this->db->delete("$semester");
+        
     }
     
     public function addLecturer($data, $semester) {  

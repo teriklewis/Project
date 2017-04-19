@@ -118,5 +118,10 @@ class LoginModel extends CI_Model {
             }
         }
     }
+    
+    public function getLoginInfo() {
+        $query = $this->db->get('logininfo');
+        return $query->result();
+    }
 
 }

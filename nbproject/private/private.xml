@@ -6,8 +6,12 @@
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/ViewLecturersView.php</file>
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/EditScheduleView.php</file>
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/controllers/ScheduleEditorController.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/models/CourseModel.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/MoveCourseView.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/addLecturerView.php</file>
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/HomeView.php</file>
             <file>file:/C:/xampp/htdocs/SoftwareProject/application/views/LoginView.php</file>
+            <file>file:/C:/xampp/htdocs/SoftwareProject/application/models/LoginModel.php</file>
         </group>
     </open-files>
 </project-private>

@@ -84,8 +84,9 @@
             <option value ="TBA">To be announced</option>
             <?php
             foreach ($coursesLectured as $c):
-                if ($c->courseCode == $CourseCode) :
+                if ($c->courseCode == $CourseCode) : //the course is being taught by a lecturer, or possibly
 
+                    //if the lecturer is a contract lecturer
                     if ($c->cid != NULL) {
                         $busy = false;
 
@@ -98,10 +99,12 @@
                             }
                             
                         }
+                        //if the lecturer isnt occupied at the time with a course
                             foreach ($schedule as $s) {
                                 if ($s->lecturerID == $c->cid && $s->time == $time && $s->day == $day) {
                                     $busy = true;
                                 }
+                                //finding if the lecturer set that time as available 
                                 switch ($time) {
                                     //period 1
                                     case "8:00":
@@ -438,6 +441,7 @@
                                         break;
                                 }
                             }
+                            //if that lecturer is available
                             if ($busy == false) {
                                 foreach ($contractLecturer as $cl) {
                                     if ($c->cid == $cl->id) {
@@ -454,7 +458,7 @@
                                         ?></option>
                                     <?php
                             }
-                    } else {
+                    } else { // the lecturer is full time
                         $busy = false;
                         foreach ($schedule as $s) {
                             if ($s->lecturerID == $c->lid && $s->time == $time && $s->day == $day) {
@@ -487,7 +491,6 @@
     </select> </br></br>
     <h2><input type="submit" value='Add Lecturer' name='submit'/></h2>
     <form/> </br>
-    <h2><?php echo $busy; ?> </h2>
 
     <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
     <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>
