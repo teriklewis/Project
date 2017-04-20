@@ -73,9 +73,29 @@
                 <?php endforeach; ?>
 
                 </tbody>
+            </table></h1></br>
+        
+        <h1>Contract Lecturers</h1>
+        
+        <h1><table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Max Credits</th>
+                    <th>No. Credits</th>
+                </tr>
+
+                <?php foreach ($contractlecturer as $cl): ?>
+                    <tr>
+                        <td><?php echo $cl->id . " "; ?></td>
+                        <td><?php echo $cl->firstName . " " . $cl->lastName; ?></td>
+                        <td><?php echo $cl->maxCredits . " "; ?></td>
+                        <td><?php echo $cl->noCredits . " "; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+
+                </tbody>
             </table></h1>
-        
-        
         
         <script src="<?php echo base_url(); ?>/theme/js/jquery-2.1.1.js"></script>
         <script src="<?php echo base_url(); ?>/theme/js/plugins.js"></script>

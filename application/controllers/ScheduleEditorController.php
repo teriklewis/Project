@@ -441,6 +441,7 @@ class ScheduleEditorController extends CI_Controller {
         
         $this->load->model('HomeModel');
         $data['lecturer'] = $this->HomeModel->getLecturers();
+        $data['contractlecturer'] = $this->HomeModel->getContractLecturers();
         
         $this->load->view('ViewLecturersView', $data);
     }
