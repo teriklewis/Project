@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="padded-top"><h1>Lecturers</h1></div>     
+        <div class="padded-top"><h1>Full Time Lecturers</h1></div>     
         
         <h1><table>
                 <tr>

@@ -115,6 +115,7 @@
             <form/> </br>
         <?php endif; ?>          
 
+        <?php if($level > 4): ?>
         <h1>Schedule</h1>
 
         <?php if ($semester == "unselected"): ?>
@@ -124,18 +125,18 @@
         <?php if ($semester == ""): ?>
             <h2>No semester selected. Please select a semester and try again.</h2>
         <?php endif; ?>
-
+       
         <?php echo form_open('ScheduleEditorController/view') ?>
 
         <select name="semester">
-            <option value = "" > - No semester selected -</option>
+            <option value = "unselected" > - No semester selected -</option>
             <option value ="firstsem">1st Semester</option>
             <option value ="secondsem">2nd Semester</option>
             <option value ="thirdsem">3rd Semester</option>
         </select> </br></br>
-        <h2><input type="submit" value='Go' name='submit'/></h2>
+        <h2><input type="submit" value='View' name='view'/></h2>
         <form/> </br>
-
+            <?php endif; ?>
         <?php if ($semester != "unselected" && $semester != ""): ?>
 
             <?php if ($semester != "thirdsem"): ?>

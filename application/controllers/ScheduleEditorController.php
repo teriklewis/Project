@@ -387,6 +387,8 @@ class ScheduleEditorController extends CI_Controller {
         if ($data['lecturerID'] == "TBA") {
             $data['lecturerID'] = 0;
             $data['lecturerName'] = " To be announced";
+            echo '<script>alert("No Lecturer Selected. Returning to Edit Schedule Page.");</script>';
+            redirect(site_url('ScheduleEditorController/EditSchedule'), 'refresh');
         } else {
             $this->load->model('LoginModel');
             $this->load->model('CourseModel');
